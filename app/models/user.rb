@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :username, presence: true
   has_many :fridge_users
   has_many :fridges, through: :fridge_users
+  has_many :bookmarks
 end
