@@ -1,8 +1,5 @@
 class IngredientsController < ApplicationController
 
-  def index
-    @ingredients = Ingredient.all
-  end
 
   def new
     @ingredients = Ingredient.new
@@ -11,5 +8,15 @@ class IngredientsController < ApplicationController
   def destroy
     @ingredients = Ingredient.find(params[:id])
     @ingredient.destroy
+  end
+end
+
+def create
+  @ingredient = Ingredient.new(experience_params)
+  @ingredient.user = current_user
+  if @experience.save
+    redirect_to experiences_path, notice: 'Experience was successfully created.'
+  else
+    render :new
   end
 end
