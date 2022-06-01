@@ -1,4 +1,7 @@
 <h1>Hi!</h1>
 <% @fridge.ingredients.each do |ingredient| %>
   <p><%= ingredient.name %></p>
+  <p><%= link_to "Update", edit_ingredient_path(ingredient) %></p>
+  <p><%= link_to "Delete", fridge_ingredient_path(@fridge,ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
 <% end %>
+<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
