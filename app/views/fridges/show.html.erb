@@ -1,4 +1,6 @@
-<h1>Hi!</h1>
-<% @fridge.ingredients.each do |ingredient| %>
-  <p><%= ingredient.name %></p>
-<% end %>
+<div class="m-3">
+  <h1> <%= @fridge.name %></h1>
+  <% @fridge.ingredients.each do |ingredient| %>
+    <p><%= ingredient.name %></p>
+  <% end %>
+</div>

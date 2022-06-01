@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "fridges#show"
+  root "fridges#index"
+
+  resources :fridges, only: [:show, :create, :update, :destroy]
 end
