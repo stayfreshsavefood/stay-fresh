@@ -13,7 +13,7 @@ class IngredientsController < ApplicationController
     if @ingredient.save
       redirect_to root_path, notice: 'Ingredient was successfully added.'
     else
-     #add something here
+     render :new
     end
   end
 

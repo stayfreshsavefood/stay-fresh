@@ -1,0 +1,19 @@
+<div class="m-3">
+  <h2>Create a new fridge</h2>
+  <%= simple_form_for [@fridge = Fridge.new] do |f| %>
+    <%= f.input :name %>
+    <%= f.button :submit,'create a new fridge', class:'btn btn-primary m-3' %>
+  <% end %>
+  <% if @fridges.empty? %>
+    <h1>You dont have any fridge yet</h1>
+  <% else %>
+    <% @fridges.each do |fridge| %>
+      <h2><%= link_to fridge.name, fridge_path(fridge) %></h2>
+      <p><%= form_for fridge do |f| %>
+        <%= f.text_field :name %>
+        <%= f.button :submit, class: 'btn btn-primary mt-3'%>
+      <% end %>
+      <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+    <% end %>
+  <% end %>
+</div>
