@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_130928) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_31_151953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "recipe_id", null: false
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_bookmarks_on_recipe_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "expiry_notifications", force: :cascade do |t|
+    t.bigint "ingredient_id", null: false
+    t.bigint "fridge_id", null: false
+    t.date "exp_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fridge_id"], name: "index_expiry_notifications_on_fridge_id"
+    t.index ["ingredient_id"], name: "index_expiry_notifications_on_ingredient_id"
+  end
 
   create_table "fridge_users", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -25,6 +45,38 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_130928) do
 
   create_table "fridges", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.date "exp_date"
+    t.string "category"
+    t.integer "quantity"
+    t.text "comment"
+    t.bigint "fridge_id", null: false
+    t.string "unit"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fridge_id"], name: "index_ingredients_on_fridge_id"
+  end
+
+  create_table "invite_notifications", force: :cascade do |t|
+    t.string "status"
+    t.bigint "sender_user_id", null: false
+    t.bigint "receiver_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_user_id"], name: "index_invite_notifications_on_receiver_user_id"
+    t.index ["sender_user_id"], name: "index_invite_notifications_on_sender_user_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "serves"
+    t.integer "api_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +94,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_130928) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookmarks", "recipes"
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "expiry_notifications", "fridges"
+  add_foreign_key "expiry_notifications", "ingredients"
   add_foreign_key "fridge_users", "fridges"
   add_foreign_key "fridge_users", "users"
+  add_foreign_key "ingredients", "fridges"
+  add_foreign_key "invite_notifications", "users", column: "receiver_user_id"
+  add_foreign_key "invite_notifications", "users", column: "sender_user_id"
 end
