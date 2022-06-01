@@ -1,27 +1,46 @@
 class IngredientsController < ApplicationController
+  before_action :set_fridge, only: [:new, :create,:destroy]
+  before_action :set_ingredient, only: [:edit,:update,:destroy]
 
   def new
-    @ingredients = Ingredient.new
+    @ingredient = Ingredient.new
+  end
+
+  def create
+    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient.fridge = @fridge
+    @ingredient.save
+    if @ingredient.save
+      redirect_to root_path, notice: 'Ingredient was successfully added.'
+    else
+     render :new
+    end
   end
 
   def destroy
-    @ingredients = Ingredient.find(params[:id])
     @ingredient.destroy
+    redirect_to root_path
   end
-end
 
-def create
-  @ingredient = Ingredient.new(ingredient_params)
-  @ingredient.user = current_user
-  if @ingredient.save
-    redirect_to experiences_path, notice: 'Ingredient was successfully added.'
-  else
-    render :new
+  def edit
   end
-end
 
-private
+  def update
+    @ingredient.update(ingredient_params)
+    redirect_to root_path
+  end
 
-def ingredient_params
-  params.require(:ingredient).permit(:name, :exp_date, :category, :quantity, :comment, :fridge_id, :unit)
+  private
+
+  def set_fridge
+    @fridge = Fridge.find(params[:fridge_id])
+  end
+
+  def ingredient_params
+    params.require(:ingredient).permit(:name, :exp_date, :category, :quantity, :comment, :unit)
+  end
+
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
+  end
 end
