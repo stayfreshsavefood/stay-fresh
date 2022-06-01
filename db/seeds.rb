@@ -24,6 +24,7 @@ puts "Creating three user"
   fridge_user = FridgeUser.new
   fridge_user.user = user
   fridge_user.fridge = fridge
+  fridge_user.save
   puts fridge_user.user.id
   puts fridge_user.fridge.id
   # puts fridge.users
