@@ -1,4 +1,6 @@
 class FridgesController < ApplicationController
+  before_action :set_invite_notification, only: [:index, :show]
+
   def index
     @fridges = current_user.fridges
   end
@@ -38,5 +40,9 @@ class FridgesController < ApplicationController
 
   def fridge_params
     params.require(:fridge).permit(:name)
+  end
+
+  def set_invite_notification
+    @invite_notification = InviteNotification.where(receiver_user_id: current_user.id)
   end
 end

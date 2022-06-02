@@ -16,4 +16,8 @@
       <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
     <% end %>
   <% end %>
+  <% if @invite_notification.empty? == false %>
+    <h1>Someone invited you to be fridge buddies</h1>
+  <% end %>
+
 </div>
