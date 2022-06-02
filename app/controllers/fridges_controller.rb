@@ -44,5 +44,6 @@ class FridgesController < ApplicationController
 
   def set_invite_notification
     @invite_notification = InviteNotification.where(receiver_user_id: current_user.id)
+    #@fridge_id_invitation =
   end
 end

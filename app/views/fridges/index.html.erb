@@ -17,7 +17,7 @@
     <% end %>
   <% end %>
   <% if @invite_notification.empty? == false %>
-    <h1>Someone invited you to be fridge buddies</h1>
+    <p><%= link_to 'Someone invited you to be fridge buddies', fridge_invite_notifications_path(@invite_notification.fridge_id) %></p>
   <% end %>
 
 </div>

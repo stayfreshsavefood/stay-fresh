@@ -20,8 +20,11 @@ class InviteNotificationsController < ApplicationController
       @receiver = User.where(email: invitation_params[:email])
       @invite_notification.status = true
       @invite_notification.receiver_user_id = @receiver.first.id
+      @invite_notification.fridge_id = @fridge.id
       if @invite_notification.save
-        redirect_to root_path, notice: 'Fridge was successfully created.'
+        redirect_to root_path, notice: 'Invitation sent.'
+      else
+        render :new, status: :unprocessable_entity, notice: 'Invitation failed'
       end
     end
 
