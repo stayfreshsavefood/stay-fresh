@@ -5,3 +5,4 @@
   <p><%= link_to "Delete", ingredient_path(ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
 <% end %>
 <p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
+<%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
