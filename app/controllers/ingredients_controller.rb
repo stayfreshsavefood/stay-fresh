@@ -17,6 +17,10 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def index
+
+  end
+
   def destroy
     @ingredient.destroy
     redirect_to fridge_path(@ingredient.fridge), status: :see_other
@@ -34,6 +38,10 @@ class IngredientsController < ApplicationController
   end
 
   private
+
+  def fridge_params
+    params.require(:fridge).permit(:name)
+  end
 
   def set_fridge
     @fridge = Fridge.find(params[:fridge_id])
