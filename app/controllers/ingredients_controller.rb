@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
-  before_action :set_fridge, only: [:new, :create,:destroy]
-  before_action :set_ingredient, only: [:edit,:update,:destroy]
+  before_action :set_fridge, only: [:new, :create, :edit]
+  before_action :set_ingredient, only: [:edit, :update, :destroy]
 
   def new
     @ingredient = Ingredient.new
@@ -11,7 +11,7 @@ class IngredientsController < ApplicationController
     @ingredient.fridge = @fridge
     @ingredient.save
     if @ingredient.save
-      redirect_to root_path, notice: 'Ingredient was successfully added.'
+      redirect_to fridge_path(@fridge), notice: 'Ingredient was successfully added.'
     else
      render :new
     end
@@ -19,15 +19,18 @@ class IngredientsController < ApplicationController
 
   def destroy
     @ingredient.destroy
-    redirect_to root_path
+    redirect_to fridge_path(@ingredient.fridge), status: :see_other
   end
 
   def edit
   end
 
   def update
-    @ingredient.update(ingredient_params)
-    redirect_to root_path
+    if @ingredient.update(ingredient_params)
+      redirect_to fridge_path(@ingredient.fridge)
+    else
+      render :edit
+    end
   end
 
   private
