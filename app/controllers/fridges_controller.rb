@@ -9,6 +9,7 @@ class FridgesController < ApplicationController
     else
       @fridge = Fridge.new
     end
+
     if params[:query].present?
       @ingredients = @fridge.ingredients.search_by_name(params[:query])
     else
