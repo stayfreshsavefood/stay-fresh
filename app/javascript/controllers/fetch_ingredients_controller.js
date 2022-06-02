@@ -7,14 +7,15 @@ export default class extends Controller {
   }
 
   fetchIngredients() {
-    fetch('https://shelf-life-api.herokuapp.com/guides/19091', {mode: "no-cors",
-    method: "GET",
-    })
-    .then((response) => {
-        console.log(response);
-        response.text().then((data) => {
-            console.log("data:" + data);
-      });
-    });
+    // fetch('https://shelf-life-api.herokuapp.com/guides/19091', {mode: "no-cors",
+    // method: "GET",
+    // })
+    // .then((response) => {
+    //     console.log(response);
+    //     response.text().then((data) => {
+    //         console.log("data:" + data);
+    //   });
+    // });
+    fetch('https://shelf-life-api.herokuapp.com/search?query=%27apple%27').then(response=>response.json()).then(data =>console.log(data[0]))
   }
 }
