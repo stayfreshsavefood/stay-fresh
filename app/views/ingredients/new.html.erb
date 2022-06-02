@@ -1,4 +1,14 @@
 <div class="container py-4">
+  <form id="search-form" class="row" data-controller="fetch-ingredients">
+  <div class="col-10">
+    <input id="test" type="text" class="form-control" placeholder="find Ingredients">
+  </div>
+  <div class="col-2">
+    <input type="submit" class="btn btn-primary target" data-action='click->fetch-ingredients#fetchIngredients' value="Search">
+  </div>
+</form>
+
+
   <h2>Add your ingredients</h2>
-  <%= render "form", ingredient: @ingredient, fridge: @fridge %>
+ <%= render "form", ingredient: @ingredient, fridge: @fridge %>
 </div>
