@@ -1,11 +1,4 @@
 <h1><%= @fridge.name %></h1>
-<% @ingredients.each do |ingredient| %>
-  <p><%= ingredient.name %></p>
-  <p><%= link_to "Update", edit_ingredient_path(ingredient) %></p>
-  <p><%= link_to "Delete", fridge_ingredient_path(@fridge,ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
-<% end %>
-<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
-
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -14,3 +7,22 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+<% @ingredients.each do |ingredient| %>
+  <p><%= ingredient.name %></p>
+  <p><%= link_to "Update", edit_fridge_ingredient_path(@fridge,ingredient) %></p>
+  <p><%= link_to "Delete", ingredient_path(ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+<% end %>
+<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
+
+<%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
+
+
+<%= # form_tag fridge_path(@fridge), method: :get, class: "d-flex" do %>
+  <%= # text_field_tag :query,
+   # params[:query],
+   # class: "form-control",
+   # placeholder: "Find an ingredient"
+  %>
+  <%=  #submit_tag "Search", class: "btn btn-primary" %>
+<% #end %>
+

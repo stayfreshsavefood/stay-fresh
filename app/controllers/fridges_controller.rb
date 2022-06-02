@@ -21,7 +21,7 @@ class FridgesController < ApplicationController
     if @fridge.save
       @fridge_user = FridgeUser.new(user: current_user, fridge: @fridge)
       @fridge_user.save
-      redirect_to fridges_path, notice: 'Fridge was successfully created.'
+      redirect_to fridge_path(@fridge), notice: 'Fridge was successfully created.'
     else
       render :show
     end
