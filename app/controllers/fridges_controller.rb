@@ -11,10 +11,12 @@ class FridgesController < ApplicationController
     end
 
     if params[:query].present?
-      @ingredients = @fridge.ingredients.search_by_name(params[:query])
+      @ingredients = @fridge.ingredients.search_by_name.(params[:query])
     else
       @ingredients = @fridge.ingredients
     end
+
+    @ingredients = @ingredients.sort_by(&:exp_date)
   end
 
   def create
@@ -38,5 +40,11 @@ class FridgesController < ApplicationController
     @fridge = Fridge.find(params[:id])
     @fridge.destroy
     redirect_to fridges_path, status: :see_other
+  end
+
+  private
+
+  def fridge_params
+    params.require(:fridge).permit(:name)
   end
 end
