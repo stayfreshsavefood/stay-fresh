@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_151953) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_120044) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,11 +63,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_151953) do
   end
 
   create_table "invite_notifications", force: :cascade do |t|
-    t.string "status"
+    t.boolean "status"
     t.bigint "sender_user_id", null: false
     t.bigint "receiver_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
     t.index ["receiver_user_id"], name: "index_invite_notifications_on_receiver_user_id"
     t.index ["sender_user_id"], name: "index_invite_notifications_on_sender_user_id"
   end

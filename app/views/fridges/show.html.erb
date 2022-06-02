@@ -1,8 +1,8 @@
 <h1><%= @fridge.name %></h1>
+<h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge) %></h2>
 <% @fridge.ingredients.each do |ingredient| %>
   <p><%= ingredient.name %></p>
-  <p><%= link_to "Update", edit_ingredient_path(ingredient) %></p>
-  <p><%= link_to "Delete", fridge_ingredient_path(@fridge,ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+  <p><%= link_to "Update", edit_fridge_ingredient_path(@fridge,ingredient) %></p>
+  <p><%= link_to "Delete", ingredient_path(ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
 <% end %>
 <p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
-

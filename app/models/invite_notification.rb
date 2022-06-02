@@ -2,7 +2,7 @@ class InviteNotification < ApplicationRecord
   belongs_to :sender_user, class_name: 'User'
   belongs_to :receiver_user, class_name: 'User'
 
-  validates :sender_user, :receiver_user, :status, presence: true
+  validates :sender_user, :receiver_user, :status, :email, presence: true
   validates :sender_user, uniqueness: true, uniqueness: { scope: :receiver_user,
     message: "invite already exits" }
 
