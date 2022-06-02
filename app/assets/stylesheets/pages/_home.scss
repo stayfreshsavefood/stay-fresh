@@ -1,1 +1,41 @@
 // Specific CSS for your home-page
+.homepage {
+  background: $dark-green;
+}
+
+.homepage h1{
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #464444;
+}
+.homepage h2{
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #464444;
+  line-height: 45px;
+  font-size: 20px;
+}
+.homepage .input-home {
+  width: 50px;
+}
+
+.homepage img, svg {
+  vertical-align: middle;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.homepage-container {
+  align-items: center;
+  color: $brown;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  justify-content: center;
+}

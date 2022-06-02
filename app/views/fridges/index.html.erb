@@ -1,8 +1,11 @@
-<div class="m-3">
+<div class="homepage">
+  <h1>Let's Save The<br>
+      food!</h1>
   <h2>Create a new fridge</h2>
+<% image_tag('grey_dot1.png') %>
   <%= simple_form_for [@fridge = Fridge.new] do |f| %>
-    <%= f.input :name %>
-    <%= f.button :submit,'create a new fridge', class:'btn btn-primary m-3' %>
+    <%= f.input :name, class:'input-form' %>
+    <%= f.button :submit,'create a new fridge', class:'button-primary' %>
   <% end %>
   <% if @fridges.empty? %>
     <h1>You dont have any fridge yet</h1>
@@ -11,9 +14,10 @@
       <h2><%= link_to fridge.name, fridge_path(fridge) %></h2>
       <p><%= form_for fridge do |f| %>
         <%= f.text_field :name %>
-        <%= f.button :submit, class: 'btn btn-primary mt-3'%>
+        <%= f.button :submit, class:'button-primary'%>
       <% end %>
       <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
     <% end %>
   <% end %>
+  <%= render :partial => 'svg/homepage_image2', class:'img' %>
 </div>
