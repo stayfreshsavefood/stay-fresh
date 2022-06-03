@@ -11,4 +11,8 @@ class InviteNotification < ApplicationRecord
   def sender_and_receiver
     errors.add(:receiver_user, "sender and receiver cant be the same") if sender_user == receiver_user
   end
+
+  def accept
+
+  end
 end

@@ -29,6 +29,10 @@ class InviteNotificationsController < ApplicationController
       end
     end
 
+    def accept_invitation
+
+    end
+
     private
 
     def invitation_params
@@ -37,5 +41,9 @@ class InviteNotificationsController < ApplicationController
 
     def set_fridge
       @fridge = Fridge.find(params[:fridge_id])
+    end
+
+    def set_status_invitation
+
     end
 end
