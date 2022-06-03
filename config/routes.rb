@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :invite_notifications, only: [:new,:create,:show,:index]
   end
 
-  resources :invite_notifications, only: [:destroy]
+  resources :invite_notifications, only: [:destroy,:new,:show,:index]
   resources :ingredients, only: [:destroy]
 end

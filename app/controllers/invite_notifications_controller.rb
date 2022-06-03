@@ -2,7 +2,8 @@ class InviteNotificationsController < ApplicationController
     before_action :set_fridge, only: [:new, :create]
 
     def index
-      @your_invitation = InviteNotification.where(receiver_user_id: current_user.id)
+      @invite_notification = InviteNotification.where(receiver_user_id: current_user.id)
+
     end
 
     def show
@@ -18,7 +19,7 @@ class InviteNotificationsController < ApplicationController
       @invite_notification = InviteNotification.new(invitation_params)
       @invite_notification.sender_user_id = current_user.id
       @receiver = User.where(email: invitation_params[:email])
-      @invite_notification.status = true
+      @invite_notification.status = false
       @invite_notification.receiver_user_id = @receiver.first.id
       @invite_notification.fridge_id = @fridge.id
       if @invite_notification.save

@@ -1,1 +1,8 @@
 <h1>your invitations here </h1>
+
+
+<% @invite_notification.each do |invite| %>
+    <h2><%= link_to invite.receiver_user_id, invite_notifications_path(@fridge,invite) %></h2>
+    <h2><%= link_to "accept"%></h2>
+    <h2><%= link_to "decline" %></h2>
+<% end %>
