@@ -13,12 +13,11 @@ class IngredientsController < ApplicationController
     if @ingredient.save
       redirect_to fridge_path(@fridge), notice: 'Ingredient was successfully added.'
     else
-     render :new
+      render :new
     end
   end
 
   def index
-
   end
 
   def destroy

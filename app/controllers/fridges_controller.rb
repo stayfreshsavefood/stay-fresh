@@ -11,10 +11,12 @@ class FridgesController < ApplicationController
     end
 
     if params[:query].present?
-      @ingredients = @fridge.ingredients.search_by_name(params[:query])
+      @ingredients = @fridge.ingredients.search_by_name.(params[:query])
     else
       @ingredients = @fridge.ingredients
     end
+
+    @ingredients = @ingredients.sort_by(&:exp_date)
   end
 
   def create
