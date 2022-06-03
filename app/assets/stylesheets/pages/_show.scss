@@ -1,0 +1,25 @@
+.body-fridge{
+  background-color: #25C7A9;
+  height: 100vh
+
+}
+
+.ingredient-card{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 90vw;
+margin-bottom: 10px;
+margin-left: 5px;
+}
+
+.left-card {
+  display: flex;
+  width: 50%;
+  background-color: lightgray;
+  border-radius: 12px;
+}
+
+.right-card {
+  display: flex;
+}

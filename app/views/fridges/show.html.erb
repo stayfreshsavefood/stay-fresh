@@ -1,3 +1,5 @@
+<div class="body-fridge">
+
 <h1><%= @fridge.name %></h1>
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
@@ -9,10 +11,17 @@
 <% end %>
 
 <% @ingredients.each do |ingredient| %>
+<div class="ingredient-card">
+  <div class="left-card">
   <p><%= ingredient.name %>  <%= "- exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+  </div>
+  <div class="right-card">
   <p><%= link_to "Update", edit_fridge_ingredient_path(@fridge,ingredient) %></p>
   <p><%= link_to "Delete", ingredient_path(ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+  </div>
+</div>
 <% end %>
 <p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
 
 <%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
+</div>
