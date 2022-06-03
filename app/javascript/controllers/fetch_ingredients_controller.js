@@ -16,6 +16,8 @@ export default class extends Controller {
     //         console.log("data:" + data);
     //   });
     // });
-    fetch('https://shelf-life-api.herokuapp.com/search?query=%27apple%27').then(response=>response.json()).then(data =>console.log(data[0]))
+    fetch('https://crossorigin.me/https://shelf-life-api.herokuapp.com/search?query=apple')
+    .then(response=>console.log(response.text()));
+    //.then(data =>console.log(data))
   }
 }
