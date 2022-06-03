@@ -1,6 +1,5 @@
 .body-fridge{
   background-color: #25C7A9;
- 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -19,10 +18,12 @@
 .left-card {
   display: flex;
   width: 60%;
-  background-color: lightgray;
-  border-radius: 12px;
+  background-color: #D9D9D9;
+  border-radius: 15px;
   justify-content: space-between;
   align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
 }
 
 .right-card {
@@ -36,6 +37,8 @@
 .ingredients-font{
   font-size: 22px;
   padding: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
 }
 
 .container-ingredients{
@@ -48,6 +51,7 @@
 #searchbar{
   width: 90vw;
   margin: 0 auto;
+  border-radius: 15px;
 }
 
 .expiry-font{
@@ -56,10 +60,11 @@
 
 .button-action{
   text-decoration: none;
-  border: 2px solid black;
+  // border: 2px solid black;
   padding: 5px;
-  border-radius: 12px;
+  border-radius: 15px;
   background-color: #B4E6DA;
   color: black;
   margin-left: 8px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
