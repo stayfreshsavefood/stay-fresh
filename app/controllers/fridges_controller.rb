@@ -11,12 +11,16 @@ class FridgesController < ApplicationController
     end
 
     if params[:query].present?
-      @ingredients = @fridge.ingredients.search_by_name.(params[:query])
+      @ingredients = @fridge.ingredients.search_by_name(params[:query])
     else
       @ingredients = @fridge.ingredients
     end
 
-    @ingredients = @ingredients.sort_by(&:exp_date)
+    if params[:sort] == "category"
+      @ingredients = @ingredients.sort_by(&:category)
+    else
+      @ingredients = @ingredients.sort_by(&:exp_date)
+    end
   end
 
   def create
@@ -26,7 +30,7 @@ class FridgesController < ApplicationController
       @fridge_user.save
       redirect_to fridge_path(@fridge), notice: 'Fridge was successfully created.'
     else
-      render :show
+      redirect_to fridges_path
     end
   end
 
