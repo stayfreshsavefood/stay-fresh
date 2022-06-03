@@ -1,9 +1,10 @@
 // Specific CSS for your home-page
 .homepage {
   background: $dark-green;
+  margin: auto;
 }
 
-.homepage h1{
+.homepage h1 {
   font-family: "Poppins", sans-serif;
   text-align: center;
   margin-top: 100px;
@@ -12,21 +13,20 @@
   line-height: 45px;
   color: #464444;
 }
-.homepage h2{
+
+.homepage h2 {
   font-family: "Poppins", sans-serif;
   text-align: center;
   color: #464444;
   line-height: 45px;
   font-size: 20px;
 }
-.homepage .input-home{
-  width: 50px;
-}
 
-.homepage img, svg {
+.homepage img,
+svg {
   vertical-align: middle;
   margin-left: 50px;
-  margin-top: 50px;
+  margin-top: 200px;
 }
 
 .homepage .image-dot {
@@ -42,4 +42,29 @@
   font-size: 30px;
   line-height: 45px;
   justify-content: center;
+}
+
+.homepage .form-label {
+  display: none;
+}
+
+.fridges-container {
+  margin: 0 auto;
+  margin-top: 32px;
+  background-color: $beige;
+  width: 50%;
+  border-radius: 10px;
+  height: 50%;
+  text-decoration: none;
+}
+
+.fridge-name {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.homepage a {
+  color: $brown;
+  text-decoration: none;
 }

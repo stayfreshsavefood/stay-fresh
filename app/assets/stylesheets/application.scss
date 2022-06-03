@@ -10,3 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// class to center unique children in container
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

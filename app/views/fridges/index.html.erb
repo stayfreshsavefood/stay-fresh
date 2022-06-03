@@ -1,22 +1,26 @@
 <div class="homepage">
   <h1>Let's Save The<br>
-      food!</h1>
+    food!</h1>
   <h2>Create a new fridge</h2>
-  <%= simple_form_for [@fridge = Fridge.new] do |f| %>
-    <%= f.input :name, input_html: { class: 'input-home' } %>
-    <%= f.button :submit,'create a new fridge', class:'button-primary' %>
-  <% end %>
+  <div class="flex-centered">
+    <div>
+      <%= simple_form_for [@fridge = Fridge.new] do |f| %>
+        <%= f.input :name, input_html: { class: 'input-home' } %>
+        <%= f.button :submit,'Add a new  fridge', class:'button-primary' %>
+      <% end %>
+    </div>
+  </div>
   <% if @fridges.empty? %>
     <h1>You dont have any fridge yet</h1>
   <% else %>
-    <% @fridges.each do |fridge| %>
-      <h2><%= link_to fridge.name, fridge_path(fridge) %></h2>
-      <p><%= form_for fridge do |f| %>
-        <%= f.text_field :name, class:'input-form'%>
-        <%= f.button :submit, class:'button-primary'%>
-      <% end %>
-      <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+    <div class="fridges-container">
+      <% @fridges.each do |fridge| %>
+        <div class="fridge-name">
+         <%= link_to fridge.name, fridge_path(fridge) %>
+          <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+      </div>
     <% end %>
-  <% end %>
-  <%= render :partial => 'svg/homepage_image2', class:'img' %>
+  </div>
+<% end %>
+<%= render :partial => 'svg/homepage_image2', class:'img' %>
 </div>
