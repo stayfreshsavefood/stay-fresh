@@ -1,6 +1,6 @@
 .body-fridge{
   background-color: #25C7A9;
- 
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -62,4 +62,8 @@
   background-color: #B4E6DA;
   color: black;
   margin-left: 8px;
+}
+
+.buffer{
+  margin-bottom: 70px;
 }
