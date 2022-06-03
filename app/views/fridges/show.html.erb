@@ -7,10 +7,9 @@
     class: "form-control",
     placeholder: "Find an ingredient"
   %>
-  <%= select_tag "sort", options_for_select(["expiry date", "category"]) %>
+<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]) %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
-
 <div class="container-ingredients">
   <% @ingredients.each do |ingredient| %>
   <div class="ingredient-card">
@@ -30,7 +29,9 @@
   </div>
 <% end %>
 </div>
-<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
+<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge), class: "pb-3" %></p>
 
 <%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
+<div class="buffer">
+</div>
 </div>
