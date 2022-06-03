@@ -1,25 +1,65 @@
 .body-fridge{
   background-color: #25C7A9;
-  height: 100vh
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 
 .ingredient-card{
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 90vw;
-margin-bottom: 10px;
-margin-left: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  margin-left: 5px;
+  margin-top: 10px;
 }
 
 .left-card {
   display: flex;
-  width: 50%;
+  width: 60%;
   background-color: lightgray;
   border-radius: 12px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .right-card {
+  margin-left: 3px;
   display: flex;
+  width: 35%;
+  justify-content: space-between;
+
+}
+
+.ingredients-font{
+  font-size: 22px;
+  padding: 5px;
+}
+
+.container-ingredients{
+  margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#searchbar{
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.expiry-font{
+  padding: 5px;
+}
+
+.button-action{
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 12px;
+  background-color: #B4E6DA;
+  color: black;
+  margin-left: 8px;
 }

@@ -1,7 +1,7 @@
 <div class="body-fridge">
 
 <h1><%= @fridge.name %></h1>
-<%= form_tag fridge_path(@fridge), method: :get, class: "d-flex" do %>
+<%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -10,17 +10,25 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<% @ingredients.each do |ingredient| %>
-<div class="ingredient-card">
-  <div class="left-card">
-  <p><%= ingredient.name %>  <%= "- exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+<div class="container-ingredients">
+  <% @ingredients.each do |ingredient| %>
+  <div class="ingredient-card">
+    <div class="left-card">
+      <p class="ingredients-font"><%= ingredient.name %></p>
+      <p class="expiry-font"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+    </div>
+
+    <div class="right-card">
+      <div>
+        <%= link_to "Update", edit_fridge_ingredient_path(@fridge,ingredient), class:"button-action" %>
+      </div>
+      <div>
+        <p><%= link_to "Delete", ingredient_path(ingredient), class:"button-action", data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+      </div>
+    </div>
   </div>
-  <div class="right-card">
-  <p><%= link_to "Update", edit_fridge_ingredient_path(@fridge,ingredient) %></p>
-  <p><%= link_to "Delete", ingredient_path(ingredient), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
-  </div>
-</div>
 <% end %>
+</div>
 <p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge) %></p>
 
 <%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
