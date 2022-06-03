@@ -6,7 +6,11 @@
     <%= f.input :quantity,placeholder: 'quantity', input_html: { class: "input-field" }, label: false  %>
     <%= f.input :comment,placeholder: 'Any comments?', input_html: { class: "input-field" }, label: false  %>
     <%= f.input :unit,placeholder: 'unit', input_html: { class: "input-field" }, label: false  %>
-    <%= f.button :submit, "Add product", class:'button-primary btn-form' %>
+    <% if request.path == new_fridge_ingredient_path %>
+     <%= f.button :submit, "Add product", class:'button-primary btn-form' %>
+    <% else %>
+      <%= f.button :submit, "Update", class:'button-primary btn-form' %>
+    <% end %>
     <%= link_to 'Back to fridge', fridge_path(fridge), class: 'btn button-primary btn-form' %>
   <% end %>
 </div>
