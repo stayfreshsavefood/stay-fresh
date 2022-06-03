@@ -1,6 +1,6 @@
 <div class="body-fridge">
 
-<h1><%= @fridge.name %></h1>
+<h1 class="text-center py-4"><%= @fridge.name %></h1>
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -29,9 +29,10 @@
   </div>
 <% end %>
 </div>
-<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge), class: "pb-3" %></p>
+<div class="d-flex gap-2 flex-column align-items-center mt-3">
+  <%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge), class: 'btn button-primary py-3' %>
 
-<%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
-<div class="buffer">
+  <%= link_to 'Back to all fridges', root_path, class: 'btn button-primary py-3' %>
 </div>
+<div class="buffer">
 </div>
