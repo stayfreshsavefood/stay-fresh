@@ -5,6 +5,7 @@
     class: "form-control",
     placeholder: "Find an ingredient"
   %>
+  <%= select_tag "sort", options_for_select(["expiry date", "category"]) %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
