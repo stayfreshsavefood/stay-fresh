@@ -39,4 +39,10 @@ class FridgesController < ApplicationController
     @fridge.destroy
     redirect_to fridges_path, status: :see_other
   end
+  
+  private
+
+  def fridge_params
+    params.require(:fridge).permit(:name)
+  end
 end
