@@ -18,9 +18,9 @@
         <div class="fridge-name">
          <%= link_to fridge.name, fridge_path(fridge) %>
           <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-<%= render :partial => 'svg/homepage_image2', class:'img' %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <%= render :partial => 'svg/homepage_image2', class:'img' %>
 </div>
