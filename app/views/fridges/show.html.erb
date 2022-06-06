@@ -12,10 +12,17 @@
 <% end %>
 <div class="container-ingredients">
   <% @ingredients.each do |ingredient| %>
-  <div class="ingredient-card">
-    <div class="left-card">
-      <p class="ingredients-font"><%= ingredient.name %></p>
-      <p class="expiry-font"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+  <div class="ingredient-card" data-controller="collapse" data-action="click->collapse#showmore">
+    <div class="left-card" data-collapse-target="description">
+      <div class="">
+        <p class="ingredients-font ingredient-card-details"><%= ingredient.name %></p>
+        <p class="expiry-font ingredient-card-details"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+      </div>
+      <div class="d-none" data-collapse-target="ingredients">
+        <p class="ingredients-font"><%= ingredient.category %></p>
+        <p class="expiry-font"><%= ingredient.quantity %> <<%= ingredient.unit %></p>
+        <p class="comment"><%= ingredient.comment %>
+      </div>
     </div>
 
     <div class="right-card">
