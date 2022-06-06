@@ -1,8 +1,9 @@
 class InviteNotificationsController < ApplicationController
     before_action :set_fridge, only: [:new, :create]
+    before_action :set_invitation, only: [:update, :destroy]
 
     def index
-      @invite_notifications = InviteNotification.where(receiver_user_id: current_user.id,status: false)
+      @invite_notifications = InviteNotification.where(receiver_user_id: current_user.id, status: false)
     end
 
     def show
@@ -14,17 +15,12 @@ class InviteNotificationsController < ApplicationController
     end
 
     def update
-      @invitation = InviteNotification.find(params[:id])
-      if params[:name]=="accept"
+      if params[:name] == "accept"
         @invitation.status = true
         @invitation.save!
         @new_fridge = FridgeUser.new(user_id: current_user.id, fridge_id: @invitation.fridge.id)
         @new_fridge.save!
-        redirect_to root_path #, status: :ok, notice: 'You have new fridge'
-        #@invitation.destroy
-      elsif params[:name]=="decline"
-        @invitation.destroy
-        redirect_to root_path, notice: 'You declined the invitation', status: :ok
+        redirect_to root_path, status: :see_other, notice: 'You joined a new fridge'
       end
     end
 
@@ -46,8 +42,11 @@ class InviteNotificationsController < ApplicationController
       end
     end
 
-    def accept_invitation
-
+    def destroy
+      if params[:name] == "decline"
+        @invitation.destroy
+        redirect_to root_path, status: :see_other, notice: 'You declined the invitation'
+      end
     end
 
     private
@@ -60,7 +59,7 @@ class InviteNotificationsController < ApplicationController
       @fridge = Fridge.find(params[:fridge_id])
     end
 
-    def set_status_invitation
-
+    def set_invitation
+      @invitation = InviteNotification.find(params[:id])
     end
 end
