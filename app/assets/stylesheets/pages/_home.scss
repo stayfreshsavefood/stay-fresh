@@ -1,1 +1,83 @@
 // Specific CSS for your home-page
+.homepage {
+  background: $dark-green;
+  margin: auto;
+  background-image: image_url("home-page-img.svg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  background-position-y: 80%;
+}
+
+.homepage h1 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #464444;
+}
+
+.homepage h2 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #464444;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.homepage img,
+svg {
+  vertical-align: middle;
+  margin-left: 50px;
+  margin-top: 200px;
+}
+
+.homepage .image-dot {
+  align-items: center;
+}
+
+.homepage-container {
+  align-items: center;
+  color: $brown;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  justify-content: center;
+}
+
+.homepage .form-label {
+  display: none;
+}
+
+.fridges-container {
+  margin: 0 auto;
+  margin-top: 32px;
+  background-color: $light-gray;
+  width: 50%;
+  height: 50%;
+  text-decoration: none;
+  border-radius: 15px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: $light-grey;
+}
+
+.fridge-name {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.homepage a {
+  color: $light-grey;
+  font-family: $body-font;
+  padding: 8px 16px;
+  background-color: $light-gray;
+  font-size: $base-font-size;
+  text-decoration: none;
+  border-radius: 15px;
+}

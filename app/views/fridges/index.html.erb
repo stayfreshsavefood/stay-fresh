@@ -1,20 +1,24 @@
-<div class="m-3">
-  <h2> <%= current_user.email %> </h2>
-  <h2>Create a new fridge</h2>
-  <%= simple_form_for(@fridge) do |f| %>
-    <%= f.input :name %>
-    <%= f.button :submit,'create a new fridge', class:'btn btn-primary m-3' %>
-  <% end %>
+<div class="homepage">
+  <h1>Let's Save The<br>
+    food!</h1>
+  <h2>Create a new fridge:</h2>
+  <div class="flex-centered">
+    <div>
+      <%= simple_form_for [@fridge = Fridge.new] do |f| %>
+        <%= f.input :name, input_html: { class: 'input-home' } %>
+        <%= f.button :submit,'Add a new  fridge', class:'button-primary' %>
+      <% end %>
+    </div>
+  </div>
   <% if @fridges.empty? %>
     <h1>You dont have any fridge yet</h1>
   <% else %>
-    <% @fridges.each do |fridge| %>
-      <h2><%= link_to fridge.name, fridge_path(fridge) %></h2>
-      <p><%= form_for fridge do |f| %>
-        <%= f.text_field :name %>
-        <%= f.button :submit, class: 'btn btn-primary mt-3'%>
-      <% end %>
-      <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
+    <div class="fridges-container">
+      <% @fridges.each do |fridge| %>
+        <div class="fridge-name">
+          <%= link_to fridge.name, fridge_path(fridge) %>
+          <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+      </div>
     <% end %>
   <% end %>
   <% if @invite_notifications %>

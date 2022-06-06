@@ -25,11 +25,11 @@ puts "Creating three user"
   fridge_user.user = user
   fridge_user.fridge = fridge
   fridge_user.save
-  puts fridge_user.user.id
-  puts fridge_user.fridge.id
+  puts fridge_user.user.username
+  puts fridge_user.fridge.name
   # puts fridge.users
   10.times do
-    ingredient = Ingredient.new(name: Faker::Food.vegetables, category: "vegetable", exp_date: Faker::Date.between(from:  Date.today, to: '2022-06-05'), quantity: rand(10), unit:"piece")
+    ingredient = Ingredient.new(name: Faker::Food.vegetables, category: "Fruits & Veggies", exp_date: Faker::Date.between(from:  Date.today, to: '2022-06-05'), quantity: rand(10), unit:"piece")
     ingredient.fridge = fridge
     ingredient.save
   end
