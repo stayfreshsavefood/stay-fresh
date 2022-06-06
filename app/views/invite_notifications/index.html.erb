@@ -1,0 +1,9 @@
+<h1>your invitations here </h1>
+
+
+<% @invite_notifications.each do |invite| %>
+    <h2><%= invite.receiver_user_id %></h2>
+    <h2><%= invite.fridge.id %></h2>
+    <h2><%= link_to "accept", invite_notification_path(invite, name: "accept"), data:{ turbo_method: :put } %></h2>
+    <h2><%= link_to "decline", invite_notification_path(invite, name: "decline"), data:{ turbo_method: :delete, turbo_confirm: "Are you sure"} %></h2>
+<% end %>

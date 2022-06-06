@@ -1,6 +1,8 @@
 <div class="body-fridge">
 
 <h1><%= @fridge.name %></h1>
+<h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge) %></h2>
+
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
