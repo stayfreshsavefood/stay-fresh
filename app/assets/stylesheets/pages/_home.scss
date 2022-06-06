@@ -57,14 +57,13 @@ svg {
 .fridges-container {
   margin: 0 auto;
   margin-top: 32px;
-  background-color: $beige;
+  background-color: $light-gray;
   width: 50%;
-  border-radius: 10px;
   height: 50%;
   text-decoration: none;
   border-radius: 15px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  color:#464444
+  color: $light-grey;
 }
 
 .fridge-name {
@@ -77,7 +76,8 @@ svg {
   color: $light-grey;
   font-family: $body-font;
   padding: 8px 16px;
-  background-color: $beige;
+  background-color: $light-gray;
   font-size: $base-font-size;
   text-decoration: none;
+  border-radius: 15px;
 }
