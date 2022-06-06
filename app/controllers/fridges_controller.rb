@@ -1,8 +1,9 @@
 class FridgesController < ApplicationController
-  before_action :set_invite_notification, only: [:index, :show]
+  before_action :set_invite_notifications, only: [:index, :show]
 
   def index
     @fridges = current_user.fridges
+    @fridge = Fridge.new()
   end
 
   def show
@@ -15,12 +16,12 @@ class FridgesController < ApplicationController
 
   def create
     @fridge = Fridge.new(fridge_params)
-    if @fridge.save
+    if @fridge.save!
       @fridge_user = FridgeUser.new(user: current_user, fridge: @fridge)
       @fridge_user.save
-      redirect_to fridges_path, notice: 'Fridge was successfully created.'
+      redirect_to root_path, notice: 'Fridge was successfully created.'
     else
-      render :show
+      render :index, status: :unprocessable_entity
     end
   end
 
@@ -42,8 +43,7 @@ class FridgesController < ApplicationController
     params.require(:fridge).permit(:name)
   end
 
-  def set_invite_notification
-    @invite_notification = InviteNotification.where(receiver_user_id: current_user.id)
-    #@fridge_id_invitation =
+  def set_invite_notifications
+    @invite_notifications = InviteNotification.where(receiver_user_id: current_user.id, status: false)
   end
 end

@@ -1,6 +1,7 @@
 <div class="m-3">
+  <h2> <%= current_user.email %> </h2>
   <h2>Create a new fridge</h2>
-  <%= simple_form_for [@fridge = Fridge.new] do |f| %>
+  <%= simple_form_for(@fridge) do |f| %>
     <%= f.input :name %>
     <%= f.button :submit,'create a new fridge', class:'btn btn-primary m-3' %>
   <% end %>
@@ -16,8 +17,8 @@
       <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %></p>
     <% end %>
   <% end %>
-  <% if @invite_notification %>
-    <p><%= link_to 'Someone invited you to be fridge buddies', fridge_invite_notifications_path(@invite_notification) %></p>
+  <% if @invite_notifications %>
+    <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
   <% end %>
   <% if user_signed_in? %>
       <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
