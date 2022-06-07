@@ -1,4 +1,6 @@
 <div class="body-fridge">
+<%= link_to "+", new_fridge_ingredient_path(@fridge), class: "button-round" %>
+<h1 class="text-center py-4"><%= @fridge.name %></h1>
 
 <h1><%= @fridge.name %></h1>
 <h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge) %></h2>
@@ -9,15 +11,22 @@
     class: "form-control",
     placeholder: "Find an ingredient"
   %>
-<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]) %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary" %>
 <div class="container-ingredients">
   <% @ingredients.each do |ingredient| %>
-  <div class="ingredient-card">
-    <div class="left-card">
-      <p class="ingredients-font"><%= ingredient.name %></p>
-      <p class="expiry-font"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+  <div class="ingredient-card" data-controller="collapse" data-action="click->collapse#showmore">
+    <div class="left-card" data-collapse-target="description">
+      <div class="">
+        <p class="ingredients-font ingredient-card-details"><%= ingredient.name %></p>
+        <p class="expiry-font ingredient-card-details"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+      </div>
+      <div class="d-none" data-collapse-target="ingredients">
+        <p class="ingredients-font"><%= ingredient.category %></p>
+        <p class="expiry-font"><%= ingredient.quantity %> <<%= ingredient.unit %></p>
+        <p class="comment"><%= ingredient.comment %>
+      </div>
     </div>
 
     <div class="right-card">

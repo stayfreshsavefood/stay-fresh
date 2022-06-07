@@ -12,15 +12,19 @@
 }
 
 .button-secondary {
-  color: white;
+  color: black;
   font-family: $body-font;
-  background-color: $dark-green;
+  background-color: $light-green;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
+  border-radius: 15px;
   width: 147px;
-  height: 68px;
+  height: 50px;
   left: 106px;
   top: 620px;
+  border: none;
+  text-align: center;
+  padding: 5px;
+  margin-left: 8px;
 }
 
 .button-white {
@@ -42,4 +46,21 @@ left: 30px;
 top: 364px;
 
 filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.button-round {
+  padding: 8px 16px;
+  background-color: $beige;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 210px;
+  margin-top: 100px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  color: $light-grey;
+  font-family: $body-font;
+  font-weight: bolder;
+  font-size: 50px;
 }
