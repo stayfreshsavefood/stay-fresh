@@ -12,7 +12,7 @@ border-radius: 15px;
 
 .card-product {
   overflow: hidden;
-  height: 100px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -22,14 +22,14 @@ border-radius: 15px;
 }
 
 .card-product img {
-  height: 100%;
-  width: 100px;
+  height: 75%;
   object-fit: cover;
+  max-width: 200px;
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 300;
   margin: 0;
 }
 
@@ -43,4 +43,48 @@ border-radius: 15px;
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product-heart{
+  position: relative;
+  top: 49px;
+  right: 21px;
+}
+
+.card-product-likes{
+  position: relative;
+  top: 49px;
+  right: 11px;
+}
+
+.bookmark{
+  height: 20px !important;
+  margin-left: -18px;
+  margin-right: 6px;
+  margin-bottom: 133px;
+}
+// #searchbar{
+//   width: 50vw;
+//   margin: 0 auto;
+//   position: absolute;
+//   height: 35.28px;
+//   left: 14px;
+//   top: 33.64px;
+//   border-radius: 15px;
+// }
+
+.searchbar1{
+  width: 205px;
+  height: 35.28px;
+  left: 135px;
+  top: 129px;
+  font-size: 16px;
+  border: none;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.searchbar-input{
+  border-radius: 15px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
