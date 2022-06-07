@@ -1,13 +1,15 @@
 <div class="form-container">
   <%= simple_form_for [fridge, ingredient] do |f| %>
-    <%= f.input :name,placeholder: 'name', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :exp_date,placeholder: 'How long will it last?', as: :date, html5: true, input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :category,placeholder: 'Select Category', as: :select, collection: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'Others'], prompt: 'Select Category', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :quantity,placeholder: 'quantity', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :comment,placeholder: 'Any comments?', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :unit,placeholder: 'unit', input_html: { class: "input-field" }, label: false  %>
+    <%= f.input :name, placeholder: 'name', input_html: { class: "input-field" } %>
+    <%= f.input :exp_date, placeholder: 'How long will it last?', as: :date, html5: true, input_html: { class: "input-field" }  %>
+    <%= f.input :category, placeholder: 'Select Category', as: :select, collection: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'Others'], prompt: 'Select Category', input_html: { class: "input-field" } %>
+    <div class="d-flex">
+      <%= f.input :quantity, placeholder: 'quantity', input_html: { class: "input-field w-400" } %>
+      <%= f.input :unit, placeholder: 'unit', as: :select, collection: ['piece', 'g', 'ml', 'Others'], prompt: 'unit', input_html: { class: "input-field" }  %>
+    </div>
+    <%= f.input :comment, placeholder: 'Any comments?', input_html: { class: "input-field" }  %>
     <% if request.path == new_fridge_ingredient_path %>
-     <%= f.button :submit, "Add product", class:'button-primary btn-form' %>
+      <%= f.button :submit, "Add product", class:'button-primary btn-form' %>
     <% else %>
       <%= f.button :submit, "Update", class:'button-primary btn-form' %>
     <% end %>
