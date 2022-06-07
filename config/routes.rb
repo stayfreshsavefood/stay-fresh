@@ -6,12 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "fridges#index"
   resources :fridges, only: [:show, :create, :update, :destroy] do
-    resources :ingredients, only: [:new, :create, :update, :edit]
-    resources :invitations, only: [:new, :create]
-    resources :expiry_notifications, only: [:edit, :update]
+    resources :ingredients, only: [:new,:create,:update,:edit]
+    resources :invite_notifications, only: [:new,:create,:show]
   end
 
-  resources :invitations, only: [:destroy]
+  resources :invite_notifications, only: [:index,:update,:destroy]
   resources :ingredients, only: [:destroy]
-  resources :expiry_notification, only: [:destroy]
 end

@@ -1,6 +1,10 @@
 <div class="body-fridge">
 <%= link_to "+", new_fridge_ingredient_path(@fridge), class: "button-round" %>
 <h1 class="text-center py-4"><%= @fridge.name %></h1>
+
+<h1><%= @fridge.name %></h1>
+<h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge) %></h2>
+
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
@@ -36,10 +40,9 @@
   </div>
 <% end %>
 </div>
-<div class="d-flex gap-2 flex-column align-items-center mt-3">
-  <%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge), class: 'btn button-primary py-3' %>
+<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge), class: "pb-3" %></p>
 
-  <%= link_to 'Back to all fridges', root_path, class: 'btn button-primary py-3' %>
-</div>
+<%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
 <div class="buffer">
+</div>
 </div>

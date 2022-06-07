@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_31_151953) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_135957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,11 +63,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_151953) do
   end
 
   create_table "invite_notifications", force: :cascade do |t|
-    t.string "status"
+    t.boolean "status"
     t.bigint "sender_user_id", null: false
     t.bigint "receiver_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.bigint "fridge_id"
+    t.index ["fridge_id"], name: "index_invite_notifications_on_fridge_id"
     t.index ["receiver_user_id"], name: "index_invite_notifications_on_receiver_user_id"
     t.index ["sender_user_id"], name: "index_invite_notifications_on_sender_user_id"
   end
@@ -101,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_31_151953) do
   add_foreign_key "fridge_users", "fridges"
   add_foreign_key "fridge_users", "users"
   add_foreign_key "ingredients", "fridges"
+  add_foreign_key "invite_notifications", "fridges"
   add_foreign_key "invite_notifications", "users", column: "receiver_user_id"
   add_foreign_key "invite_notifications", "users", column: "sender_user_id"
 end
