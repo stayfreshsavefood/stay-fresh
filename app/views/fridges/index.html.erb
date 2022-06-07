@@ -1,31 +1,43 @@
 <div class="homepage">
   <h1>Let's Save The<br>
     food!</h1>
-  <h2>Create a new fridge:</h2>
-  <div class="flex-centered">
-    <div>
-      <%= simple_form_for [@fridge = Fridge.new] do |f| %>
-        <%= f.input :name, input_html: { class: 'input-home' } %>
-        <%= f.button :submit,'Add a new  fridge', class:'button-primary' %>
-      <% end %>
-    </div>
+  <div class="dropdown my-5">
+    <button class="btn button-primary btn-add-fridge dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      Add a new fridge
+    </button>
+    <ul class="dropdown-menu dropdown-card" aria-labelledby="dropdownMenuButton1">
+      <li>
+        <div class="flex-centered">
+          <div>
+            <%= simple_form_for [@fridge = Fridge.new] do |f| %>
+              <div class="m-3">
+                <%= f.input :name, input_html: { class: 'input-home' }, placeholder: "name your fridge" %>
+                <%# <%= f.button :submit %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
+
   <% if @fridges.empty? %>
     <h1>You dont have any fridge yet</h1>
   <% else %>
-    <div class="fridges-container">
+    <div class="fridges-container p-3">
+      <h3>Your <%= 'fridge'.pluralize(@fridges.count) %> </h3>
       <% @fridges.each do |fridge| %>
         <div class="fridge-name">
           <%= link_to fridge.name, fridge_path(fridge) %>
-          <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
-      </div>
-    <% end %>
+          <%# <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-  <% if @invite_notifications %>
-    <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
-  <% end %>
-  <% if user_signed_in? %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-  <% end %>
-
+  <%# <% if @invite_notifications %>
+    <%# <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
+  <%# <% end %>
+  <%# <% if user_signed_in? %>
+      <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+  <%# <% end %>
 </div>
