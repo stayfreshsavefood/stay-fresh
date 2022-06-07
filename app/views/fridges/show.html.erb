@@ -9,9 +9,9 @@
     class: "form-control me-3 searchbar-input",
     placeholder: "Find an ingredient"
   %>
+  <%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary mt-3" %>
   <%= submit_tag "Search", class: "searchbar" %>
 <% end %>
-<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary mt-3" %>
 <div class="container-ingredients">
   <% @ingredients.each do |ingredient| %>
   <div class="ingredient-card" data-controller="collapse" data-action="click->collapse#showmore">
