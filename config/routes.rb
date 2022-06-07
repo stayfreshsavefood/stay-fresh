@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :ingredients, only: [:new, :create, :update, :edit]
     resources :invitations, only: [:new, :create]
     resources :expiry_notifications, only: [:edit, :update]
+    resources :recipes, only: [:index, :show, :create, :destroy]
   end
 
   resources :invitations, only: [:destroy]
