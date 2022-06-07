@@ -7,17 +7,20 @@ export default class extends Controller {
   }
 
   hello(event) {
-    console.log(event.currentTarget.dataset["recipeId"])
     const recipeId = event.currentTarget.dataset["recipeId"]
     const url = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=c4553cc010d340c5bfb18010d5180fa9`
     fetch(url)
      .then(response => response.json())
      .then((data) => {
-        this.modalbodyTargets.forEach((target) => {this.insertData(data, target)})
+       console.log(data);
+        this.modalbodyTargets.forEach((target) => {
+          this.insertData(data, target)})
      })
   }
 
   insertData(data, target) {
-    target.innerHTML = "<p> Hi </p>";
+    target.innerHTML = `
+    <h3>Instructions</h3>
+    <p> ${data["instructions"]} </p>`;
   }
 }

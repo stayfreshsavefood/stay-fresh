@@ -32,7 +32,7 @@
     <div class="card-product my-3" data-bs-toggle="modal" data-bs-target="<%= "#exampleModal#{recipe["id"]}" %>" data-recipe-id="<%= recipe["id"] %>" data-action="click->recipe-modals#hello" >
       <div class="card-product-infos">
         <h2><%= recipe["title"] %></h2>
-        <p>no of ingredients used from fridge - <%= recipe["usedIngredientCount"] %></p>
+        <p>Uses <%= pluralize(recipe["usedIngredientCount"], 'ingredient') %> from the fridge </p>
       </div>
       <p class="card-product-heart">❤️</p>
       <p class="card-product-likes"><%= recipe["likes"] %></p>
@@ -52,8 +52,14 @@
             <h5 class="modal-title" id="exampleModalLabel"><%= recipe["title"] %></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" data-recipe-modals-target="modalbody">
-            ...
+          <div class="modal-body">
+            <%= image_tag recipe["image"] %>
+            <p>Ingredients used from the fridge</p>
+            <% recipe["usedIngredients"].each do |ingredient| %>
+              <p> <%= ingredient["name"] %></p>
+            <% end %>
+            <div data-recipe-modals-target="modalbody">
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn button-primary">Lets cook</button>
@@ -62,6 +68,9 @@
       </div>
     </div>
   <% end %>
+</div>
+<div>
+
 </div>
 <div class="buffer">
 </div>
