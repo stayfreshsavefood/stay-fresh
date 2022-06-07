@@ -12,7 +12,7 @@ border-radius: 15px;
 
 .card-product {
   overflow: hidden;
-  height: 100px;
+  height: 150px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
@@ -22,14 +22,14 @@ border-radius: 15px;
 }
 
 .card-product img {
-  height: 100%;
-  width: 100px;
+  height: 75%;
   object-fit: cover;
+  max-width: 200px;
 }
 
 .card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 300;
   margin: 0;
 }
 
@@ -43,4 +43,16 @@ border-radius: 15px;
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product-heart{
+  position: relative;
+  top: 49px;
+  right: 21px;
+}
+
+.card-product-likes{
+  position: relative;
+  top: 48px;
+  right: 11px;
 }

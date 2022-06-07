@@ -2,7 +2,7 @@
 <%# <% @recipes.each do |recipe| %>
   <%# <p><%= recipe %>
 <%# <% end %>
-<%= form_tag fridge_recipes_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
+<%= form_tag fridge_recipes_path(@fridge), method: :get, class: "d-flex", id:"searchbar", class:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
@@ -16,12 +16,15 @@
   <% @recipes.each do |recipe| %>
     <!-- Button trigger modal -->
     <div class="card-product my-3" data-bs-toggle="modal" data-bs-target="<%= "#exampleModal#{recipe["id"]}" %>" data-recipe-id="<%= recipe["id"] %>" data-action="click->recipe-modals#hello" >
-      <%= image_tag recipe["image"] %>
       <div class="card-product-infos">
         <h2><%= recipe["title"] %></h2>
-        <p> ❤️  <%= recipe["likes"] %></p>
         <p>no of ingredients used from fridge - <%= recipe["usedIngredientCount"] %></p>
       </div>
+      <p class="card-product-heart">❤️</p>
+      <p class="card-product-likes"><%= recipe["likes"] %></p>
+      <%= image_tag recipe["image"],
+      class:"pe-4" %>
+
     </div>
 
     <!-- Modal -->
