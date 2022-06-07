@@ -1,9 +1,1 @@
 <h1>Check your fridges</h1>
-
-
-<% @ingredients_to_expire.each do |ingredient| %>
-    <h2><%= ingredient.name  %></h2>
-    <h2><%= ingredient.category %></h2>
-    <h2><%= link_to "accept", invite_notification_path(invite, name: "accept"), data:{ turbo_method: :put } %></h2>
-    <h2><%= link_to "decline", invite_notification_path(invite, name: "decline"), data:{ turbo_method: :delete, turbo_confirm: "Are you sure"} %></h2>
-<% end %>

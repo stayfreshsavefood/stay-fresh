@@ -1,7 +1,7 @@
 require 'date'
 class FridgesController < ApplicationController
   before_action :set_invite_notifications, only: [:index, :show]
-  before_action :set_ingredients_to_expire, only: [:index, :show]
+  before_action :set_ingredients_to_expire, only: [:show]
 
   def index
     @fridges = current_user.fridges
@@ -61,7 +61,8 @@ class FridgesController < ApplicationController
   end
 
   def set_ingredients_to_expire
-    @ingredients_to_expire = Ingredient.all.select do |ingredient|
+    @fridge = Fridge.find(params[:id])
+    @ingredients_to_expire = Ingredient.where(fridge: @fridge.id).select do |ingredient|
       ingredient.how_long >= 0 && ingredient.how_long <= 2
     end
   end
