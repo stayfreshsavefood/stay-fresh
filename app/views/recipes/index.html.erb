@@ -1,0 +1,47 @@
+<h1>Recipes</h1>
+<%# <% @recipes.each do |recipe| %>
+  <%# <p><%= recipe %>
+<%# <% end %>
+<%= form_tag fridge_recipes_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find recipes"
+  %>
+  <i class="fa-solid fa-magnifying-glass"> <%= submit_tag "search"%> </i>
+<% end %>
+<%# <p><%=# @recipes[0] %>
+
+<div class="d-flex flex-column align-items-center" data-controller="recipe-modals">
+  <% @recipes.each do |recipe| %>
+    <!-- Button trigger modal -->
+    <div class="card-product my-3" data-bs-toggle="modal" data-bs-target="<%= "#exampleModal#{recipe["id"]}" %>" data-recipe-id="<%= recipe["id"] %>" data-action="click->recipe-modals#hello" >
+      <%= image_tag recipe["image"] %>
+      <div class="card-product-infos">
+        <h2><%= recipe["title"] %></h2>
+        <p> ❤️  <%= recipe["likes"] %></p>
+        <p>no of ingredients used from fridge - <%= recipe["usedIngredientCount"] %></p>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="<%= "exampleModal#{recipe["id"]}" %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= recipe["title"] %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" data-recipe-modals-target="modalbody">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn button-primary">Lets cook</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="buffer">
+</div>
