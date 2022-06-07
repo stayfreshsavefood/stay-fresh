@@ -21,7 +21,10 @@
       </div>
     <% end %>
   <% end %>
-  <% if @invite_notifications %>
+  <% if @invite_notifications.length > 0 %>
+    <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
+  <% end %>
+  <% if @ingredients_to_expire.empty? %>
     <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
   <% end %>
   <% if user_signed_in? %>

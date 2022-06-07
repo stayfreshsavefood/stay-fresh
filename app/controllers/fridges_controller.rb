@@ -6,8 +6,6 @@ class FridgesController < ApplicationController
   def index
     @fridges = current_user.fridges
     @fridge = Fridge.new()
-    raise
-
   end
 
   def show
