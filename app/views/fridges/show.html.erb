@@ -1,5 +1,5 @@
 <div class="body-fridge">
-
+<%= link_to "+", new_fridge_ingredient_path(@fridge), class: "button-round" %>
 <h1 class="text-center py-4"><%= @fridge.name %></h1>
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
@@ -7,9 +7,9 @@
     class: "form-control",
     placeholder: "Find an ingredient"
   %>
-<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]) %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary" %>
 <div class="container-ingredients">
   <% @ingredients.each do |ingredient| %>
   <div class="ingredient-card" data-controller="collapse" data-action="click->collapse#showmore">
