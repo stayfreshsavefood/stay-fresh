@@ -18,6 +18,16 @@
         <div class="fridge-name">
           <%= link_to fridge.name, fridge_path(fridge) %>
           <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+          <% @fridges_notifications.each do |fridge_expiring_products| %>
+            <% @fridges.each do |fridge|%>
+              <% if fridge_expiring_products.fridge == fridge %>
+                <p><%= "products expiring" %></p>
+              <% end %>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="fridges-container">
+
       </div>
     <% end %>
   <% end %>

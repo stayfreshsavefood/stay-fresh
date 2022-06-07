@@ -33,10 +33,10 @@ class ExpiryNotificationsController < ApplicationController
     # return the instances of the fridges that are in ingredients notifications
     @return_this_fridges = Fridge.all.select do |fridge|
       @fridges_expiring = @ingredients_notifications.each do |fridge_expiring|
-        (fridge.id == fridge_expiring.fridge.id)
+        (fridge.id = fridge_expiring.fridge.id)
       end
     end
   end
 end
 
-#you already have the fridges_ids that need to be shown, the problem is that
+#you already have the fridges_ids that need to be shown, the problem is

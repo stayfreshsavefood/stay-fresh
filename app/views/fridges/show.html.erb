@@ -1,7 +1,7 @@
 <div class="body-fridge">
- <% if @ingredients_to_expire.length > 0 %>
+ <% if @expiry_notifications.length > 0 %>
     <p><%='Ingredients are expiring'%></p>
-  <% end %>
+ <% end %>
 <h1><%= @fridge.name %></h1>
 <h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge) %></h2>
 

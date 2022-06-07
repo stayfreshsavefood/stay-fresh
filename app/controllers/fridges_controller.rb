@@ -2,6 +2,8 @@ require 'date'
 class FridgesController < ApplicationController
   before_action :set_invite_notifications, only: [:index, :show]
   before_action :set_ingredients_to_expire, only: [:show]
+  before_action :set_expiry_notifications, only: [:show]
+  before_action :set_fridges_expiring_products, only: [:index]
 
   def index
     @fridges = current_user.fridges
@@ -64,6 +66,26 @@ class FridgesController < ApplicationController
     @fridge = Fridge.find(params[:id])
     @ingredients_to_expire = Ingredient.where(fridge: @fridge.id).select do |ingredient|
       ingredient.how_long >= 0 && ingredient.how_long <= 2
+    end
+  end
+
+  def set_expiry_notifications
+    @fridge = Fridge.find(params[:id])
+    @expiry_notifications = ExpiryNotification.where(fridge_id: @fridge).select do |notification|
+      notification.how_long >= 0 && notification.how_long <= 2
+    end
+  end
+
+  def set_fridges_expiring_products
+    @your_fridges = FridgeUser.where(user: current_user.id)
+
+    # gives you the instances of Fridge Users that have expiring products
+    @fridges_notifications = @your_fridges.all.select do |fridge|
+      fridge_ingredients = Ingredient.where(fridge: fridge.fridge.id)
+      ingredients_expiring = fridge_ingredients.all.select do |ingredient|
+        ingredient.how_long >= 0 && ingredient.how_long <= 2
+      end
+      ingredients_expiring.length.positive?
     end
   end
 end
