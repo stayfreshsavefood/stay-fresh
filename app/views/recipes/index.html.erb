@@ -1,19 +1,29 @@
 <%# <% @recipes.each do |recipe| %>
   <%# <p><%= recipe %>
 <%# <% end %>
-<%= simple_form_for fridge_recipes_path(@fridge), method: :get, class: "d-flex " do %>
-  <div class="d-flex">
+<%# <%= simple_form_for fridge_recipes_path(@fridge), method: :get, class: "d-flex " do %>
+  <%# <div class="d-flex">
   <div>
     <%= text_field :query,
       params[:query],
       class: "form-control searchbar",
       placeholder: "Find recipes"
     %>
-  </div>
+  <%# </div>
     <%= submit_tag "search" %>
-  </div>
+  <%# </div>
 <% end %>
 <%# <p><%=# @recipes[0] %>
+
+<%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control me-3 searchbar-input",
+    placeholder: "Find a recipe"
+  %>
+  <%= submit_tag "Search", class: "searchbar" %>
+<% end %>
+
 <h1>Recipes</h1>
 
 <div class="d-flex flex-column align-items-center" data-controller="recipe-modals">

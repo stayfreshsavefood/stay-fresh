@@ -1,11 +1,16 @@
 .searchbar {
-width: 90vw;
-margin: 0 auto;
-// position: absolute;
-height: 35.28px;
-left: 14px;
-top: 33.64px;
-background: rgba(255, 249, 243, 0.41);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-border-radius: 15px;
+  width:50vw;
+  margin: 0 auto;
+  // position: absolute;
+  height: 35.28px;
+  left: 14px;
+  top: 33.64px;
+  border-radius: 15px;
+  border: none;
+  background-color: $light-green;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.searchbar-input {
+  background-color: $light-green;
 }
