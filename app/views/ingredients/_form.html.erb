@@ -1,16 +1,17 @@
 <div class="form-container">
   <%= simple_form_for [fridge, ingredient] do |f| %>
-    <%= f.input :name,placeholder: 'name', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :exp_date,placeholder: 'How long will it last?', as: :date, html5: true, input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :category,placeholder: 'Select Category', as: :select, collection: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'Others'], prompt: 'Select Category', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :quantity,placeholder: 'quantity', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :comment,placeholder: 'Any comments?', input_html: { class: "input-field" }, label: false  %>
-    <%= f.input :unit,placeholder: 'unit', input_html: { class: "input-field" }, label: false  %>
+    <%= f.input :name, placeholder: 'name', input_html: { class: "input-field" }, label: 'Name', label_html: { class: 'form-content' } %>
+    <%= f.input :exp_date, placeholder: 'How long will it last?', as: :date, html5: true, input_html: { class: "input-field" }, label: 'Expiring on', label_html: { class: 'form-content' }  %>
+    <%= f.input :category, placeholder: 'Select Category', as: :select, collection: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'Others'], prompt: 'Select Category', input_html: { class: "input-field" }, label: 'Category', label_html: { class: 'form-content' } %>
+    <div class="d-flex align-items-end">
+      <%= f.input :quantity, placeholder: 'quantity', input_html: { class: "input-field w-400" }, label: 'Quantity', label_html: { class: 'form-content' } %>
+      <%= f.input :unit, placeholder: 'unit', as: :select, collection: ['piece', 'g', 'ml', 'Others'], prompt: 'unit', input_html: { class: "input-field" }, label: false %>
+    </div>
+    <%= f.input :comment, placeholder: 'Any comments?', input_html: { class: "input-field" }, label: 'Comments', label_html: { class: 'form-content' }  %>
     <% if request.path == new_fridge_ingredient_path %>
-     <%= f.button :submit, "Add product", class:'button-primary btn-form' %>
+      <%= f.button :submit, "Add product", class:'button-primary btn-form' %>
     <% else %>
       <%= f.button :submit, "Update", class:'button-primary btn-form' %>
     <% end %>
-    <%= link_to 'Back to fridge', fridge_path(fridge), class: 'btn button-primary btn-form' %>
   <% end %>
 </div>
