@@ -1,16 +1,20 @@
-<h1>Recipes</h1>
 <%# <% @recipes.each do |recipe| %>
   <%# <p><%= recipe %>
 <%# <% end %>
-<%= form_tag fridge_recipes_path(@fridge), method: :get, class: "d-flex", id:"searchbar", class:"searchbar" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find recipes"
-  %>
-  <i class="fa-solid fa-magnifying-glass"> <%= submit_tag "search"%> </i>
+<%= simple_form_for fridge_recipes_path(@fridge), method: :get, class: "d-flex " do %>
+  <div class="d-flex">
+  <div>
+    <%= text_field :query,
+      params[:query],
+      class: "form-control searchbar",
+      placeholder: "Find recipes"
+    %>
+  </div>
+    <%= submit_tag "search" %>
+  </div>
 <% end %>
 <%# <p><%=# @recipes[0] %>
+<h1>Recipes</h1>
 
 <div class="d-flex flex-column align-items-center" data-controller="recipe-modals">
   <% @recipes.each do |recipe| %>
@@ -24,6 +28,9 @@
       <p class="card-product-likes"><%= recipe["likes"] %></p>
       <%= image_tag recipe["image"],
       class:"pe-4" %>
+      <div class="bookmark">
+        <%= image_tag("bookmark.png")%>
+      </div>
 
     </div>
 
