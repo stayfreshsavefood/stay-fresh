@@ -17,7 +17,6 @@
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
     <%= render "shared/navbar" unless request.path == "/" || current_user.nil? %>
   </body>
 </html>
