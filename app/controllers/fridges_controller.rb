@@ -52,6 +52,7 @@ class FridgesController < ApplicationController
     @fridge.destroy
     redirect_to fridges_path, status: :see_other
   end
+
   private
 
   def fridge_params
@@ -78,8 +79,6 @@ class FridgesController < ApplicationController
 
   def set_fridges_expiring_products
     @your_fridges = FridgeUser.where(user: current_user.id)
-
-    # gives you the instances of Fridge Users that have expiring products
     @fridges_notifications = @your_fridges.all.select do |fridge|
       fridge_ingredients = Ingredient.where(fridge: fridge.fridge.id)
       ingredients_expiring = fridge_ingredients.all.select do |ingredient|
