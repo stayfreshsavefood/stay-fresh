@@ -1,8 +1,8 @@
 .body-fridge{
   background-color: #25C7A9;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
   background-image: url(/assets/background-image6.png);
   background-attachment: fixed;
   min-height: 100vh;
@@ -11,39 +11,31 @@
   background-position: bottom;
 }
 
-h1 {
-  margin-top: 100px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 45px;
-  color: #464444;
-  margin-left: 210px;
-  text-align: center;
-}
+
+
 
 .ingredient-card{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90vw;
-  margin-left: 5px;
-  margin-top: 10px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // margin-left: 5px;
+  // margin-top: 10px;
+  // padding: 10px;
 }
 
 .left-card {
-  width: 60%;
+  width: 100%;
   background-color: #F3F3F3;;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: $light-grey;
-  width: 250px;
+  // width: 250px;
   // height: 64px;
   left: 16px;
   top: 260px;
-  padding: 2px;
+  padding: 10px;
   transition: 0.5s;
 }
 
@@ -54,28 +46,21 @@ h1 {
   background-color: #f1f1f1;
 }
 
-.right-card {
-  margin-left: 3px;
-  display: flex;
-  width: 35%;
-  justify-content: space-between;
-
-}
 
 .ingredients-font{
   font-size: 22px;
-  padding: 12px;
+  // padding: 12px;
 }
 
 .container-ingredients{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+    // margin-top: 10px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // padding-bottom: 10px;
+    // margin-bottom: 10px;
+    // margin-left: 10px;
+    // margin-right: 10px;
   }
 
 .expandableCard {
@@ -93,11 +78,13 @@ h1 {
 .expiry-font{
   padding: 5px;
   font-family: $body-font;
+  font-size: small;
+  color: $light-grey;
 }
 
-.ingredient-card-details {
-  margin-top: -11px;
-}
+// .ingredient-card-details {
+//   margin-top: -11px;
+// }
 
 .button-action{
   text-decoration: none;
@@ -115,7 +102,7 @@ h1 {
 .button-round a {
 }
 
-.buffer{
+.buffer {
   margin-bottom: 70px;
 }
 
@@ -124,7 +111,7 @@ h1 {
 }
 
 .fridge-show-title{
-  margin-top: -10px;
+  // margin-top: -10px;
 }
 
 
@@ -133,9 +120,9 @@ h1 {
   text-decoration: none;
   color: #0E0000;
   font-family: $body-font;
-  line-height: 22px;
+  // line-height: 22px;
   text-align: center;
-  margin-left: 7px;
+  // margin-left: 7px;
   width: 205px;
   height: 35.28px;
   left: 135px;
@@ -145,4 +132,41 @@ h1 {
   border-radius: 15px;
   background-color: $light-green;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+h1 {
+  // margin-top: 100px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  // line-height: 45px;
+  color: #464444;
+  // margin-left: 210px;
+  // text-align: center;
+}
+
+
+h3 {
+  // margin-top: 100px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  // line-height: 45px;
+  color: #464444;
+  // margin-left: 210px;
+  // text-align: center;
+}
+
+.button-add {
+  color: $light-grey;
+  font-family: $body-font;
+  font-weight: bolder;
+  font-size: 50px;
+  text-decoration: none;
+}
+
+#add-ingredient {
+  position: fixed;
+  bottom: 100px;
+  right: 25px;
 }

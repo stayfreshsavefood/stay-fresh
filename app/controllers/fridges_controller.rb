@@ -23,7 +23,7 @@ class FridgesController < ApplicationController
       @ingredients = @fridge.ingredients
     end
 
-    if params[:sort] == "category"
+    if params[:sort] == "Category"
       @ingredients = @ingredients.sort_by(&:category)
     else
       @ingredients = @ingredients.sort_by(&:exp_date)

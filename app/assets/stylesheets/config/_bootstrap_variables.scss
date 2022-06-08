@@ -23,3 +23,19 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+h1,h2,h3,h4,p {
+  margin: 0px !important;
+}
+
+
+
+
+a, a:hover {
+  color: $light-grey;
+  font-family: $body-font;
+  // padding: 8px 16px;
+  // background-color: $light-gray;
+  // font-size: $base-font-size;
+  text-decoration: none;
+  // border-radius: 15px;
+}
