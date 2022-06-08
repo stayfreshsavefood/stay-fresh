@@ -1,0 +1,8 @@
+<div class="form-container">
+  <%= simple_form_for([@fridge, @invite_notification]) do |f| %>
+    <%= f.input :email, placeholder: 'email', input_html: { class: "input-field" }, label: 'Email', label_html: { class: 'form-content' } %>
+    <div class="double-buttons-invite">
+      <%= f.button :submit, class:'btn button-primary btn-form-invite', value: "Invite" %>
+    </div>
+  <% end %>
+</div>

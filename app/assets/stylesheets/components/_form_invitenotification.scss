@@ -1,0 +1,23 @@
+.invite-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.invite-title {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #464444;
+}
+
+.add-container {
+  margin-top:20px;
+}
+
+.container-header {
+  display:flex;
+  justify-content:space-between;
+}

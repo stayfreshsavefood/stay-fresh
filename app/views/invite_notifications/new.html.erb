@@ -1,8 +1,7 @@
-<div class="container py-4">
-  <h2>Invite</h2>
-  <%= simple_form_for([@fridge, @invite_notification]) do |f| %>
-    <%= f.input :email %>
-    <%= f.button :submit, class:'btn-main my-2' %>
-    <%= link_to 'Back to all ingredients', root_path, class: 'btn-main my-2' %>
-  <% end %>
+<div class="container py-4 edit-container">
+  <div class="d-flex justify-content-between align-items-start ">
+    <%= link_to "<",fridge_path(@fridge), class: 'button-round m-0' %>
+    <h2 class="text-end py-4 w-75 pe-5">Add a buddy</h2>
+  </div>
+  <%= render "form", fridge: @fridge, fridge: @invite_notification %>
 </div>
