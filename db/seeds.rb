@@ -8,11 +8,13 @@ require 'faker'
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Cleaning DB users, ingredients and fridge"
-InviteNotification.delete_all
-FridgeUser.delete_all
-User.delete_all
-Ingredient.delete_all
-Fridge.delete_all
+Recipe.destroy_all
+ExpiryNotification.destroy_all
+InviteNotification.destroy_all
+Ingredient.destroy_all
+FridgeUser.destroy_all
+User.destroy_all
+Fridge.destroy_all
 
 puts "Creating three user"
 
