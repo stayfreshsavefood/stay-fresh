@@ -18,6 +18,24 @@ Fridge.destroy_all
 
 puts "Creating three user"
 
+user = User.new(username: 'kaviya', email: 'test@mail.com', password: "123456" )
+user.save
+fridge = Fridge.new(name: 'My Fridge')
+fridge.save
+fridge_user = FridgeUser.new
+fridge_user.user = user
+fridge_user.fridge = fridge
+fridge_user.save
+puts fridge_user.user.username
+puts fridge_user.fridge.name
+# puts fridge.users
+10.times do
+  ingredient = Ingredient.new(name: Faker::Food.vegetables, category: "Fruits & Veggies", exp_date: Faker::Date.between(from:  Date.today, to: '2022-06-05'), quantity: rand(10), unit:"piece")
+  ingredient.fridge = fridge
+  ingredient.save
+end
+
+
 3.times do
   user = User.new(username: Faker::Name.unique.name, email: Faker::Internet.email, password: "123456" )
   user.save
