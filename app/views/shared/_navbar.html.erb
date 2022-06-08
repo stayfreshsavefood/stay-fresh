@@ -1,8 +1,22 @@
 <div class="navbar-body">
   <%= link_to root_path, class: "icon" do %>
-    <%= image_tag("fridge.png", class: "icon") %>
+    <%= image_tag("fruit.png", class: "icon") %>
   <% end %>
   <%# <%= image_tag("user.png", class: "icon") %>
-  <%= image_tag("cooking.png", class: "icon") %>
-  <%= image_tag("setting.png", class: "icon") %>
+  <%= image_tag("chef.png", class: "icon") %>
+
+<div class="dropup">
+  <a class="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= image_tag("settings final.png", class: "icon") %>
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Notifications</a></li>
+    <% if ( params[:controller] == "fridges" ) && ( params[:action] == "show" ) %>
+      <li><a class="dropdown-item" href="#">Delete this fridge</a></li>
+    <% end %>
+    <li><a class="dropdown-item" href="#">Edit profile</a></li>
+    <li><a class="dropdown-item" href="#">Log out</a></li>
+  </ul>
+</div>
 </div>

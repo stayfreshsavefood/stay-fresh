@@ -1,7 +1,9 @@
 .navbar-body{
   width: 100%;
-  height: 80px;
+  height: 70px;
   background-color: #C4C4C4;
+  // background: rgb(15,164,59);
+  // background: linear-gradient(90deg, rgba(15,164,59,1) 0%, rgba(15,164,59,1) 0%, rgba(17,134,102,1) 0%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,5 +13,10 @@
 }
 
 .icon{
-  height: 40px;
+  height: 35px;
+}
+
+.dropdown-menu{
+  background-color: #25C7A9;
+  border-radius: 15px;
 }
