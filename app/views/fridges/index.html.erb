@@ -30,14 +30,20 @@
         <div class="fridge-name">
           <%= link_to fridge.name, fridge_path(fridge) %>
           <%# <%= link_to 'delete', fridge_path(fridge), data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+          <% @fridges_notifications.each do |fridge_expiring_products| %>
+            <% if fridge_expiring_products.fridge == fridge %>
+              <p><%= "expiring" %></p>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>
   <% end %>
-  <%# <% if @invite_notifications %>
-    <%# <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
-  <%# <% end %>
+  <% if @invite_notifications.length > 0 %>
+    <p><%= link_to 'Someone invited you to be fridge buddies', invite_notifications_path() %></p>
+  <% end %>
   <%# <% if user_signed_in? %>
       <%# <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
   <%# <% end %>
+
 </div>

@@ -1,5 +1,9 @@
+require 'date'
 class FridgesController < ApplicationController
   before_action :set_invite_notifications, only: [:index, :show]
+  before_action :set_ingredients_to_expire, only: [:show]
+  before_action :set_expiry_notifications, only: [:show]
+  before_action :set_fridges_expiring_products, only: [:index]
 
   def index
     @fridges = current_user.fridges
@@ -48,6 +52,7 @@ class FridgesController < ApplicationController
     @fridge.destroy
     redirect_to fridges_path, status: :see_other
   end
+
   private
 
   def fridge_params
@@ -56,5 +61,30 @@ class FridgesController < ApplicationController
 
   def set_invite_notifications
     @invite_notifications = InviteNotification.where(receiver_user_id: current_user.id, status: false)
+  end
+
+  def set_ingredients_to_expire
+    @fridge = Fridge.find(params[:id])
+    @ingredients_to_expire = Ingredient.where(fridge: @fridge.id).select do |ingredient|
+      ingredient.how_long >= 0 && ingredient.how_long <= 2
+    end
+  end
+
+  def set_expiry_notifications
+    @fridge = Fridge.find(params[:id])
+    @expiry_notifications = ExpiryNotification.where(fridge_id: @fridge).select do |notification|
+      notification.how_long >= 0 && notification.how_long <= 2
+    end
+  end
+
+  def set_fridges_expiring_products
+    @your_fridges = FridgeUser.where(user: current_user.id)
+    @fridges_notifications = @your_fridges.all.select do |fridge|
+      fridge_ingredients = Ingredient.where(fridge: fridge.fridge.id)
+      ingredients_expiring = fridge_ingredients.all.select do |ingredient|
+        ingredient.how_long >= 0 && ingredient.how_long <= 2
+      end
+      ingredients_expiring.length.positive?
+    end
   end
 end
