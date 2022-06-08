@@ -1,8 +1,8 @@
 .body-fridge{
   background-color: #25C7A9;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
   background-image: url(/assets/background-image6.png);
   background-attachment: fixed;
   min-height: 100vh;
@@ -23,27 +23,27 @@ h1 {
 }
 
 .ingredient-card{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90vw;
-  margin-left: 5px;
-  margin-top: 10px;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // margin-left: 5px;
+  // margin-top: 10px;
+  padding: 10px;
 }
 
 .left-card {
-  width: 60%;
+  width: 100%;
   background-color: #F3F3F3;;
   border-radius: 15px;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   color: $light-grey;
-  width: 250px;
+  // width: 250px;
   // height: 64px;
   left: 16px;
   top: 260px;
-  padding: 2px;
+  padding: 10px;
   transition: 0.5s;
 }
 
