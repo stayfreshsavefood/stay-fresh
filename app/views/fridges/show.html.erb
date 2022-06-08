@@ -34,7 +34,7 @@
           <div class="d-flex justify-content-start align-items-center">
             <% case ingredient.category %>
             <% when 'Fruits & Veggies' %>
-              <i class="fa-solid fa-carrot fa-xl p-2"></i>
+              <i class="fa-solid fa-leaf fa-xl p-2"></i>
             <% when 'Eggs & Dairy' %>
               <i class="fa-solid fa-egg fa-xl p-2"></i>
             <% when 'Meat & Poultry' %>
@@ -62,7 +62,9 @@
               <i class="fa-solid fa-pen"></i>
             <% end %>
 
-            <%= link_to "Delete", ingredient_path(ingredient), class:"button-action", data: { turbo_method: :delete, turbo_confirm: "Are you sure"} %>
+            <%= link_to ingredient_path(ingredient), class:"button-action", data: { turbo_method: :delete, turbo_confirm: "Are you sure"} do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
           </div>
         </div>
       </div>
