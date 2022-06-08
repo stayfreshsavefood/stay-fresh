@@ -5,7 +5,7 @@ class Ingredient < ApplicationRecord
 
   validates :name, :exp_date, :category, :quantity, :unit, :fridge, presence: true
 
-  validates :category, inclusion: { in: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'others'],
+  validates :category, inclusion: { in: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'Others'],
     message: "%{value} is not a valid category" }
 
   include PgSearch::Model
