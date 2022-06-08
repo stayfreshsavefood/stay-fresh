@@ -2,6 +2,8 @@
 @import "home";
 @import "show";
 @import "signup";
+//Import Ingresient page CSS files
+@import "../ingredients/new.scss";
 html, body {
   font-family: 'Poppins', sans-serif;
 }
