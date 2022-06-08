@@ -1,8 +1,10 @@
 <div class="container py-4 edit-container">
 
   <div class="d-flex justify-content-evenly align-items-start ">
-    <%= link_to "<",fridge_path(@fridge), class: 'button-round m-0' %>
-    <h2 class="text-end py-4 w-75 pe-5">Update</h2>
+    <div class="button-round">
+      <%= link_to "<",fridge_path(@fridge), class: 'button-add' %>
+    </div>
+    <h2 class="text-center py-4 w-75 pe-5">Update</h2>
   </div>
   <%= render "form", ingredient: @ingredient, fridge: @fridge %>
 </div>
