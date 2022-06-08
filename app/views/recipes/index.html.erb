@@ -1,0 +1,67 @@
+<%# <% @recipes.each do |recipe| %>
+  <%# <p><%= recipe %>
+<%# <% end %>
+<%# <%= simple_form_for fridge_recipes_path(@fridge), method: :get, class: "d-flex " do %>
+  <%# <div class="d-flex">
+  <div>
+    <%= text_field :query,
+      params[:query],
+      class: "form-control searchbar",
+      placeholder: "Find recipes"
+    %>
+  <%# </div>
+    <%= submit_tag "search" %>
+  <%# </div>
+<% end %>
+<%# <p><%=# @recipes[0] %>
+
+<%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control me-3 searchbar-input",
+    placeholder: "Find a recipe"
+  %>
+  <%= submit_tag "Search", class: "searchbar" %>
+<% end %>
+
+<h1>Recipes</h1>
+
+<div class="d-flex flex-column align-items-center" data-controller="recipe-modals">
+  <% @recipes.each do |recipe| %>
+    <!-- Button trigger modal -->
+    <div class="card-product my-3" data-bs-toggle="modal" data-bs-target="<%= "#exampleModal#{recipe["id"]}" %>" data-recipe-id="<%= recipe["id"] %>" data-action="click->recipe-modals#hello" >
+      <div class="card-product-infos">
+        <h2><%= recipe["title"] %></h2>
+        <p>no of ingredients used from fridge - <%= recipe["usedIngredientCount"] %></p>
+      </div>
+      <p class="card-product-heart">❤️</p>
+      <p class="card-product-likes"><%= recipe["likes"] %></p>
+      <%= image_tag recipe["image"],
+      class:"pe-4" %>
+      <div class="bookmark">
+        <%= image_tag("bookmark.png")%>
+      </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="<%= "exampleModal#{recipe["id"]}" %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><%= recipe["title"] %></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" data-recipe-modals-target="modalbody">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn button-primary">Lets cook</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="buffer">
+</div>

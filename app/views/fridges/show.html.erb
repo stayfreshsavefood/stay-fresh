@@ -2,27 +2,35 @@
  <% if @expiry_notifications.length > 0 %>
     <p><%='Ingredients are expiring'%></p>
  <% end %>
-<h1><%= @fridge.name %></h1>
-<h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge) %></h2>
+<%= link_to "+", new_fridge_ingredient_path(@fridge), class: "button-round" %>
+<h1 class="text-center py-4 fridge-show-title"><%= @fridge.name %></h1>
+<h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge), class: "add-people-button" %></h2>
 
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "form-control me-3 searchbar-input",
     placeholder: "Find an ingredient"
   %>
-<%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]) %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary mt-3" %>
+  <%= submit_tag "Search", class: "searchbar" %>
 <% end %>
 <div class="container-ingredients">
   <% @ingredients.each do |ingredient| %>
-  <div class="ingredient-card">
-    <div class="left-card">
-      <p class="ingredients-font"><%= ingredient.name %></p>
-      <p class="expiry-font"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
-      <% if ingredient.how_long >= 0 && ingredient.how_long <= 2 %>
-        <p><%='Expiring soon'%></p>
-      <% end %>
+  <div class="ingredient-card" data-controller="collapse" data-action="click->collapse#showmore">
+    <div class="left-card" data-collapse-target="description">
+      <div class="">
+        <p class="ingredients-font ingredient-card-details"><%= ingredient.name %></p>
+        <p class="expiry-font ingredient-card-details"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+        <% if ingredient.how_long >= 0 && ingredient.how_long <= 2 %>
+          <p><%='Expiring soon'%></p>
+        <% end %>
+      </div>
+      <div class="d-none" data-collapse-target="ingredients">
+        <p class="ingredients-font"><%= ingredient.category %></p>
+        <p class="expiry-font"><%= ingredient.quantity %> <%= ingredient.unit %></p>
+        <p class="comment"><%= ingredient.comment %>
+      </div>
     </div>
 
     <div class="right-card">
@@ -36,9 +44,6 @@
   </div>
 <% end %>
 </div>
-<p><%= link_to "Add ingredient", new_fridge_ingredient_path(@fridge), class: "pb-3" %></p>
-
-<%= link_to 'Back to all fridges', root_path, class: 'btn-main my-2' %>
 <div class="buffer">
 </div>
 </div>
