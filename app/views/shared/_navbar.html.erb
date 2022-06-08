@@ -2,7 +2,18 @@
   <%= link_to root_path, class: "icon" do %>
     <%= image_tag("fridge.png", class: "icon") %>
   <% end %>
-  <%# <%= image_tag("user.png", class: "icon") %>
+  <%= image_tag("user.png", class: "icon") %>
   <%= image_tag("cooking.png", class: "icon") %>
-  <%= image_tag("setting.png", class: "icon") %>
+
+<div class="dropup">
+  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    <%= image_tag("setting.png", class: "icon") %>
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
 </div>
