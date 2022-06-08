@@ -2,7 +2,14 @@
   <%= link_to root_path, class: "icon" do %>
     <%= image_tag("fridge.png", class: "icon") %>
   <% end %>
-  <%# <%= image_tag("user.png", class: "icon") %>
-  <%= image_tag("cooking.png", class: "icon") %>
+  <% if params[:fridge_id].nil? %>
+    <%= link_to fridge_recipes_path(Fridge.find(params[:id])), class: "icon" do %>
+      <%= image_tag("cooking.png", class: "icon") %>
+    <% end %>
+  <% else %>
+    <%= link_to fridge_recipes_path(Fridge.find(params[:fridge_id])), class: "icon" do %>
+      <%= image_tag("cooking.png", class: "icon") %>
+    <% end %>
+  <% end %>
   <%= image_tag("setting.png", class: "icon") %>
 </div>
