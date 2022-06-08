@@ -7,11 +7,12 @@
   top: 33.64px;
   border-radius: 15px;
   border: none;
+  color: $light-grey;
   background-color: $light-green;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: (0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.searchbar-input {
+.searchbar-input-show {
   background-color: $light-green;
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

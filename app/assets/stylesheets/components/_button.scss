@@ -12,21 +12,21 @@
 }
 
 .button-secondary {
-  color: black;
+  color: $light-grey;
   font-family: $body-font;
   background-color: $light-green;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   width: 147px;
-  height: 50px;
+  height: 37px;
   left: 106px;
   top: 620px;
   border: none;
   text-align: center;
-  padding: 5px;
   margin-left: 8px;
+  margin-right: 8px;
   text-decoration: none;
-  padding: 10px;
+  padding: 6px;
 }
 
 .button-white {

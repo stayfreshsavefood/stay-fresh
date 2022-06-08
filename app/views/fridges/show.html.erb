@@ -5,10 +5,10 @@
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex align-items-start", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control me-3 searchbar-input",
+    class: "form-control searchbar-input-show",
     placeholder: "Find"
   %>
-  <%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary mt-3" %>
+  <%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary" %>
   <%= submit_tag "Search", class: "searchbar" %>
 <% end %>
  <% if @expiry_notifications.length > 0 %>
