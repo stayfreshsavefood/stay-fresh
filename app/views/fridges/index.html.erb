@@ -24,6 +24,7 @@
   <% if @fridges.empty? %>
     <h1>You dont have any fridge yet</h1>
   <% else %>
+
     <div class="fridges-container p-3">
       <h3>Your <%= 'fridge'.pluralize(@fridges.count) %> </h3>
       <% @fridges.each do |fridge| %>
