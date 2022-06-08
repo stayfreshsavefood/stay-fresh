@@ -11,7 +11,12 @@ class IngredientsController < ApplicationController
     @ingredient.fridge = @fridge
     @ingredient.save
     if @ingredient.save
-      redirect_to fridge_path(@fridge), notice: 'Ingredient was successfully added.'
+      @expiry_notification = ExpiryNotification.new(ingredient: @ingredient, fridge: @fridge, exp_date: @ingredient.exp_date)
+      if @expiry_notification.save
+        redirect_to fridge_path(@fridge), notice: 'Ingredient was successfully added.'
+      else
+        render :new
+      end
     else
       render :new
     end

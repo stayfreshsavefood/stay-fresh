@@ -4,7 +4,7 @@ class InviteNotification < ApplicationRecord
   belongs_to :fridge
 
   validates :sender_user, :receiver_user, :email, presence: true
-  validates :sender_user, uniqueness: true, uniqueness: { scope: [:receiver_user, :fridge], message: "invite already exits" }
+  validates :receiver_user, uniqueness: { scope: [:sender_user, :fridge], message: "invite already exits" }
 
   validate :sender_and_receiver
 

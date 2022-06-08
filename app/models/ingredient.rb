@@ -1,3 +1,4 @@
+require 'date'
 class Ingredient < ApplicationRecord
   belongs_to :fridge
   has_one :expiry_notification, dependent: :destroy
@@ -13,4 +14,8 @@ class Ingredient < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def how_long
+    (self.exp_date - Date.today).to_i
+  end
 end

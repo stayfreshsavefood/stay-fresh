@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :invite_notifications, only: [:new,:create,:show]
   end
   resources :invite_notifications, only: [:index,:update,:destroy]
+  resources :expiry_notifications, only: [:index,:update,:destroy]
   resources :ingredients, only: [:destroy]
 end

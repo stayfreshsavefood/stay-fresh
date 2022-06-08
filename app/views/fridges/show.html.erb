@@ -1,4 +1,7 @@
 <div class="body-fridge">
+ <% if @expiry_notifications.length > 0 %>
+    <p><%='Ingredients are expiring'%></p>
+ <% end %>
 <%= link_to "+", new_fridge_ingredient_path(@fridge), class: "button-round" %>
 <h1 class="text-center py-4 fridge-show-title"><%= @fridge.name %></h1>
 <h2><%= link_to "Add people to your fridge",  new_fridge_invite_notification_path(@fridge), class: "add-people-button" %></h2>
@@ -6,10 +9,10 @@
 <%= form_tag fridge_path(@fridge), method: :get, class: "d-flex", id:"searchbar" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control me-3 searchbar-input",
-    placeholder: "Find an ingredient"
+    class: "form-control searchbar-input-show",
+    placeholder: "Ingredient"
   %>
-  <%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary mt-3" %>
+  <%= select_tag "sort", options_for_select(["expiry date", "category"], params[:sort]), class: "button-secondary" %>
   <%= submit_tag "Search", class: "searchbar" %>
 <% end %>
 <div class="container-ingredients">
@@ -19,6 +22,9 @@
       <div class="">
         <p class="ingredients-font ingredient-card-details"><%= ingredient.name %></p>
         <p class="expiry-font ingredient-card-details"><%= "exp in #{(ingredient.exp_date - Date.today).to_i} days" %></p>
+        <% if ingredient.how_long >= 0 && ingredient.how_long <= 2 %>
+          <p><%='Expiring soon'%></p>
+        <% end %>
       </div>
       <div class="d-none" data-collapse-target="ingredients">
         <p class="ingredients-font"><%= ingredient.category %></p>
