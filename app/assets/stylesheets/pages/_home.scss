@@ -33,7 +33,7 @@
 svg {
   vertical-align: middle;
   margin-left: 50px;
-  margin-top: 200px;
+  /* margin-top: 200px; */
 }
 
 .homepage .image-dot {
@@ -82,17 +82,27 @@ svg {
 }
 
 .fridge-name {
+  margin-top:20px;
   display: flex;
-  margin: 0 auto;
-  justify-content: space-evenly;
 }
 
 .homepage a {
   color: $light-grey;
   font-family: $body-font;
-  padding: 8px 16px;
+  /* padding: 8px 16px; */
   background-color: $light-gray;
   font-size: $base-font-size;
   text-decoration: none;
   border-radius: 15px;
+}
+
+.fridge-icon {
+  height: 30px !important;
+  margin-left: -18px;
+  margin-right: 6px;
+  margin-bottom: 15px;
+}
+
+.double-buttons {
+  margin-top:20px;
 }
