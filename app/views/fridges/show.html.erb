@@ -1,13 +1,16 @@
 <div class="body-fridge container py-5">
   <div class="mb-4">
     <div class="d-flex justify-content-between align-items-center">
-      <div class="dropup">
-        <a class="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <h1 class=""><%= @fridge.name %></h1>
-        </a>
+      <div class="dropdown">
+        <button class="button-users" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <h1 class="dropdown-toggle"><%= @fridge.name %></h1>
+        </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <% @fridge.users.each do |user|%>
-              <li><a class="dropdown-item" href="#"><%= user.username %></a></li>
+              <div class="users-fridge">
+                <%= image_tag("avatarstay.png", class:"avatar-icon") %>
+                <li><a class="dropdown-item" href="#"><%= user.username %></a></li>
+              </div>
             <% end %>
         </ul>
       </div>
