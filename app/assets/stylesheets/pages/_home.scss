@@ -2,7 +2,7 @@
 .homepage {
   background: $dark-green;
   margin: auto;
-  background-image: image_url("background-image_index.png");
+  background-image: url("home-background.png") !important;
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: 100%;
