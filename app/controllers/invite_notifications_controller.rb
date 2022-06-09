@@ -11,7 +11,7 @@ class InviteNotificationsController < ApplicationController
     end
 
 
-    
+
     def edit
 
     end
@@ -38,7 +38,7 @@ class InviteNotificationsController < ApplicationController
       @invite_notification.receiver_user_id = @receiver.id
       @invite_notification.fridge_id = @fridge.id
       if @invite_notification.save!
-        redirect_to root_path, notice: 'Invitation sent.'
+        redirect_to fridge_path(@fridge), notice: 'Invitation sent.'
       else
         render :new, status: :unprocessable_entity, notice: 'Invitation failed'
       end
