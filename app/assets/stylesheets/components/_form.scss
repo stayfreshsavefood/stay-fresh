@@ -42,6 +42,7 @@
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .form {
@@ -52,4 +53,8 @@ svg{
   position:fixed;
   top:10px;
   left:180px;
+}
+
+.date-input {
+  height: 38px !important;
 }
