@@ -28,6 +28,9 @@
   text-decoration: none;
   padding: 6px;
 }
+.button-secondary  a:hover {
+background-color: yellow;
+}
 
 .button-white {
 color: $light-grey;
