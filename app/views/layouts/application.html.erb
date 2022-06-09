@@ -14,9 +14,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="notice alert-style hidden"><%= notice %>
+    </div>
+    <p class="alert"><%= alert %> </p>
     <%= yield %>
     <%= render "shared/navbar" unless request.path == "/" || current_user.nil? %>
+
   </body>
 </html>
