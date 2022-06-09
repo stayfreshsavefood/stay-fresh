@@ -14,8 +14,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <%= render "shared/flashes" %>
     <%= yield %>
     <%= render "shared/navbar" unless request.path == "/" || current_user.nil? %>
   </body>
