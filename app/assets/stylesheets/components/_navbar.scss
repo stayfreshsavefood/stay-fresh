@@ -1,17 +1,19 @@
 .navbar-body{
-  width: 100%;
+  width: 100vw;
   height: 70px;
-  background-color: #C4C4C4;
+  background-color: #B4E6DA;
   // background: rgb(15,164,59);
   // background: linear-gradient(90deg, rgba(15,164,59,1) 0%, rgba(15,164,59,1) 0%, rgba(17,134,102,1) 0%);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0 12px;
   position: fixed;
   bottom: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  // background: rgb(68,98,255);
 }
-
 .icon{
   height: 35px;
 }
