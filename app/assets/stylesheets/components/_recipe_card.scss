@@ -1,14 +1,22 @@
 .recipe_card {
-width: 400px;
-height: 150px;
-left: 13.74px;
-top: 288.25px;
+  width: 400px;
+  height: 150px;
+  left: 13.74px;
+  top: 288.25px;
 
-background: #F3F3F3;
-box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.1);
-border-radius: 15px;
+  background: #F3F3F3;
+  box-shadow: 7px 7px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
+.recipe-header-container h2 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 45px;
+  color: #464444;
+}
 
 .card-product {
   overflow: hidden;
@@ -17,7 +25,6 @@ border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  width: 90%;
   border-radius: 15px;
 }
 
@@ -95,4 +102,18 @@ border-radius: 15px;
 
 .recipe-instruction-card {
   border-radius: 20px;
+}
+
+.recipe-img {
+  border-radius: 5px;
+}
+
+.recipe-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ingredients-used {
+  padding: 10px;
 }
