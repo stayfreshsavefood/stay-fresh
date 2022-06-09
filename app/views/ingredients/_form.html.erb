@@ -1,7 +1,7 @@
 <div class="form-container">
   <%= simple_form_for [fridge, ingredient] do |f| %>
     <%= f.input :name, placeholder: 'name', input_html: { class: "input-field" }, label: 'Name', label_html: { class: 'form-content' } %>
-    <%= f.input :exp_date, placeholder: 'How long will it last?', as: :date, html5: true, input_html: { class: "input-field" }, label: 'Expiring on', label_html: { class: 'form-content' }  %>
+    <%= f.input :exp_date, placeholder: 'How long will it last?', as: :date, html5: true, input_html: { class: "input-field date-input" }, label: 'Expiring on', label_html: { class: 'form-content' }  %>
     <%= f.input :category, placeholder: 'Select Category', as: :select, collection: ['Fruits & Veggies', 'Eggs & Dairy', 'Meat & Poultry', 'Seafood', 'Others'], prompt: 'Select Category', input_html: { class: "input-field" }, label: 'Category', label_html: { class: 'form-content' } %>
     <div class="d-flex align-items-end">
       <%= f.input :quantity, placeholder: 'quantity', input_html: { class: "input-field w-400" }, label: 'Quantity', label_html: { class: 'form-content' } %>
