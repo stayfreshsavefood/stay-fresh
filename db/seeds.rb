@@ -35,6 +35,16 @@ puts fridge_user.fridge.name
   ingredient.save
 end
 
+user = User.new(username: 'Natalia', email: 'test2@mail.com', password: "123456" )
+user.save
+fridge = Fridge.new(name: 'My Fridge')
+fridge.save
+fridge_user = FridgeUser.new
+fridge_user.user = user
+fridge_user.fridge = fridge
+fridge_user.save
+puts fridge_user.user.username
+puts fridge_user.fridge.name
 
 3.times do
   user = User.new(username: Faker::Name.unique.name, email: Faker::Internet.email, password: "123456" )
