@@ -78,8 +78,12 @@
                     </h2>
                     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
                       <div class="accordion-body">
-                        <% recipe["missedIngredients"].each_with_index do |ingredient, index| %>
-                          <p> <%= "#{index + 1}. #{ingredient["name"]}" %></p>
+                        <% if recipe["missedIngredients"].empty? %>
+                          <p>No missing ingredients 😃 Let's start cooking...</p>
+                        <% else %>
+                          <% recipe["missedIngredients"].each_with_index do |ingredient, index| %>
+                            <p> <%= "#{index + 1}. #{ingredient["name"]}" %></p>
+                          <% end %>
                         <% end %>
                       </div>
                     </div>
