@@ -18,9 +18,9 @@ $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius:    15px;
+$border-radius-lg: 15px;
+$border-radius-sm: 15px;
 
 // Override other variables below!
 h1,h2,h3,h4,p {
@@ -36,6 +36,6 @@ a, a:hover {
   // padding: 8px 16px;
   // background-color: $light-gray;
   // font-size: $base-font-size;
-  text-decoration: none;
+  //text-decoration: none;
   // border-radius: 15px;
 }
