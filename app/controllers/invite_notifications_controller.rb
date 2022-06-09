@@ -10,6 +10,8 @@ class InviteNotificationsController < ApplicationController
       @invitation = InviteNotification.find(params[])
     end
 
+
+    
     def edit
 
     end

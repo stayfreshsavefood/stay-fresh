@@ -2,18 +2,22 @@
   <%= link_to root_path, class: "icon" do %>
     <%= image_tag("fruit.png", class: "icon") %>
   <% end %>
-  <% if params[:fridge_id].nil? %>
-    <%= link_to fridge_recipes_path(Fridge.find(params[:id])), class: "icon" do %>
+  <% if  params[:format] %>
+    <%= link_to fridge_recipes_path(Fridge.find(params[:format])), class: "icon" do %>
+      <%= image_tag("chef.png", class: "icon") %>
+    <% end %>
+  <% elsif params[:fridge_id] %>
+    <%= link_to fridge_recipes_path(Fridge.find(params[:fridge_id])), class: "icon" do %>
         <%= image_tag("chef.png", class: "icon") %>
     <% end %>
   <% else %>
-    <%= link_to fridge_recipes_path(Fridge.find(params[:fridge_id])), class: "icon" do %>
+    <%= link_to fridge_recipes_path(Fridge.find(params[:id])), class: "icon" do %>
         <%= image_tag("chef.png", class: "icon") %>
     <% end %>
   <% end %>
   <%# <%= image_tag("user.png", class: "icon") %>
-                  
-                  
+
+
   <%#= image_tag("chef.png", class: "icon") %>
 
   <div class="dropup">
